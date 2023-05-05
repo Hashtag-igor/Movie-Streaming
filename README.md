@@ -1,2 +1,8 @@
-# Movie-Streaming
- This project is a streaming service that offers a catalog of movies (top scored, popular movies, upcoming and now playing)
+api: 
+    https://www.themoviedb.org/
+
+chave da api:
+    00e218e41f933725c16a438507ada50f
+
+requisição da api:
+    https://api.themoviedb.org/3/movie/550?api_key=
