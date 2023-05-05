@@ -1,0 +1,29 @@
+.app{
+  background-color: white;
+}
+
+.card-container{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.app-card-title{
+  margin: 0 0 10px 40px;
+}
+
+.rated-card-area{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  gap: 20px 0;
+}
+
+.popular-card-area{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  gap: 20px 0;
+}
