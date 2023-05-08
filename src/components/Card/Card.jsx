@@ -19,12 +19,3 @@ export default function Card({title, releaseDate, voteAverage, poster }) {
   )
 }
 
-{/* <div className="card">
-    <div className="card-components">
-        <h2 className="card-title">{title}</h2>
-        <p className="card-overview">{overview}</p>
-        <div >{releaseDate}</div>
-        <div >{voteAverage}</div>
-        <div >{voteCount}</div>
-    </div>
-</div> */}
