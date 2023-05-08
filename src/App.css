@@ -5,25 +5,18 @@
 .card-container{
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
+  margin-bottom: 300px;
 }
 
 .app-card-title{
   margin: 0 0 10px 40px;
 }
 
-.rated-card-area{
+.map-card-area{
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  margin-bottom: 50px;
-  gap: 20px 0;
+  margin-bottom: 60px;
+  gap: 30px 0;
 }
 
-.popular-card-area{
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  margin-bottom: 50px;
-  gap: 20px 0;
-}
