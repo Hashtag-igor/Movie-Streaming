@@ -1,0 +1,32 @@
+.profile{
+}
+
+.profile-area{
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+    gap: 0 50px;
+    padding: 30px 0;
+}
+
+.profile-components{
+    display: flex;
+    justify-content: space-around;
+}
+
+.profile-img{
+    border-radius: 7px;
+    width: 320px;
+    height: 450px;
+}
+
+.profile-descriptions{
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+}
+
+.overview{
+    text-align: justify;
+}
