@@ -1,7 +1,6 @@
 .navbar{
     background-color: #1f4242;
     padding: 15px;
-    margin-bottom: 40px;
     border-bottom: 3px solid #152e2e;
     color: white;
     font-weight: 600;
@@ -11,27 +10,18 @@
 .navbar-container{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    margin: auto;
     width: 100%;
     font-size: 18px;
 }
 
 .navbar-logo-area{
-    width: 30%;
-    display: flex;
-    justify-content: center;
+    width: 50%;
     font-size: 30px;
 }
 
-.navbar-links-area{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 30%;
-}
-
 .navbar-search-area{
-    width: 30%;
+    width: 50%;
     display: flex;
-    justify-content: center;
+    justify-content: end;
 }

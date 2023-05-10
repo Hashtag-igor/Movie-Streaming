@@ -1,10 +1,18 @@
 .card{
     border: 3px solid #e4e4e4;
-    width: 280px;
-    height: 380px;
+    width: 200px;
+    height: 390px;
     border-radius: 10px;
     cursor: pointer;
     background-color: white;
+    margin-bottom: 0;
+}
+
+.card:hover{
+    background-color: #1f4242;
+    transition: 0.5s;
+    color: white;
+    border: 3px solid black;
 }
 
 .card-components{
@@ -43,6 +51,12 @@
     transform: translate(10px, -40px);
     color: white;
     background-color: #1f4242;
+}
+
+.card-vote:hover{
+    background-color: white;
+    color: #1f4242;
+    border: 4px solid white;
 }
 
 .release-date{

@@ -2,7 +2,7 @@ import "./Card.css";
 
 const imgURL = import.meta.env.VITE_IMG
 
-export default function Card({title, releaseDate, voteAverage, poster }) {
+export default function Card({ title, releaseDate, voteAverage, poster }) {
   return (
     <div className="card">
         <div className="card-components">

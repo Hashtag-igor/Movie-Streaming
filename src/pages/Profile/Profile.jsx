@@ -8,15 +8,15 @@ import "./Profile.css"
 const imgURL = import.meta.env.VITE_IMG
 const imgURLTV = import.meta.env.VITE_TV_IMG
 
-export default function Profile({moviesData}) {
-  const {name, title, poster_path, overview, release_date, first_air_date, vote_average, vote_count } = moviesData || {};
+export default function Profile({moviesAndTVShowsData}) {
+  const {name, title, poster_path, overview, release_date, first_air_date, vote_average, original_language } = moviesAndTVShowsData || {};
 
-  console.log(moviesData)
+  //console.log(moviesAndTVShowsData)
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(!moviesData){
+    if(!moviesAndTVShowsData){
     navigate("/")
   }
   }, []);
@@ -32,11 +32,18 @@ export default function Profile({moviesData}) {
           </div>
           <div className="profile-components">
             <div className="profile-descriptions">
-              <div>{title ? title : name}</div>
-              <div>{release_date ? release_date : first_air_date}</div>
-              <div>{vote_average}</div>
-              <div>{vote_count}</div>
-              <div className="overview">{overview}</div>
+              <h2 className="profile-title">{title ? title : name}</h2>
+              <div className="date-vote-count">
+              <div className="vote-average">{vote_average}<span style={{fontSize: "10px"}}>%</span></div>
+                <div className="language-box">
+                  <div>{original_language}</div>
+                </div>
+                <div className="release-date">{release_date ? release_date : first_air_date}</div>
+              </div>
+              <div className="overview">
+                <h2 className="overview-title">Overview</h2>
+                {overview}
+              </div>
             </div>
           </div>
         </div>
