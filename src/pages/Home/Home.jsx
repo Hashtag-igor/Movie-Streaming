@@ -126,7 +126,7 @@ export default function Home({setmoviesAndTVShowsData}) {
         <div className='map-card-area'>
           {topMovies && topMovies.filter((item, idx) => idx < 12).map((top, key) => (
             <div key={key} onClick={() => moviesAndTVShowsPickHandler(top)}>
-              <Card poster={top.poster_path} title={top.title} overview={top.overview} releaseDate={top.release_date} voteAverage={top.vote_average} language={top.original_language}/>
+              <Card poster={top.poster_path} title={top.title} overview={top.overview} releaseDate={top.release_date} voteAverage={top.vote_average} />
             </div>
           ))}
         </div>
@@ -135,7 +135,7 @@ export default function Home({setmoviesAndTVShowsData}) {
         <div className='map-card-area'>
           {popularMovies && popularMovies.filter((item, idx) => idx < 12).map((popular, key) => (
             <div key={key} onClick={() => moviesAndTVShowsPickHandler(popular)}>
-              <Card poster={popular.poster_path} title={popular.title} overview={popular.overview} releaseDate={popular.release_date} voteAverage={popular.vote_average} language={top.original_language}/>
+              <Card poster={popular.poster_path} title={popular.title} overview={popular.overview} releaseDate={popular.release_date} voteAverage={popular.vote_average} />
             </div>
           ))}
         </div>

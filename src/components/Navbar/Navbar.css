@@ -1,6 +1,6 @@
 .navbar{
     background-color: #1f4242;
-    padding: 15px;
+    padding: 10px;
     border-bottom: 3px solid #152e2e;
     color: white;
     font-weight: 600;
@@ -10,18 +10,15 @@
 .navbar-container{
     display: flex;
     align-items: center;
+    justify-content: space-around;
     margin: auto;
     width: 100%;
-    font-size: 18px;
 }
 
 .navbar-logo-area{
-    width: 50%;
-    font-size: 30px;
+    font-size: 40px;
 }
 
 .navbar-search-area{
-    width: 50%;
-    display: flex;
-    justify-content: end;
+ 
 }

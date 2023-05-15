@@ -12,8 +12,10 @@ export default function Card({ title, releaseDate, voteAverage, poster }) {
             <div>
                 <div className="card-vote">{voteAverage}<span style={{fontSize: "10px"}}>%</span></div>
             </div>
-            <h2 className="card-title">{title}</h2>
-            <div className="release-date">{releaseDate}</div>
+            <div className="card-title-date">
+              <h2 className="card-title">{title}</h2>
+              <div className="release-date">{releaseDate}</div>
+            </div>
         </div>
     </div>
   )

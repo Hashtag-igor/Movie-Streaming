@@ -9,7 +9,7 @@ const TVShowsURL = import.meta.env.VITE_TV_SEARCH;
 const MoviesURL = import.meta.env.VITE_SEARCH;
 const apiKEY = import.meta.env.VITE_API_KEY;
 
-export default function Search({setMoviesAndTVShowsData}) {
+export default function Search({setProfileData}) {
   const [movies, setMovies] = useState([])
   const [TVShows, setTVShows] = useState([])
 
@@ -21,6 +21,7 @@ export default function Search({setMoviesAndTVShowsData}) {
   const getSearchMoviesResults = async (url) => {
     const res = await fetch(url)
     const data = await res.json()
+    console.log(data.results)
     setMovies(data.results)
   }
 
@@ -39,8 +40,8 @@ export default function Search({setMoviesAndTVShowsData}) {
   }, [query])
 
   const moviesAndTVShowsPickHandler = (moviesAndTVShowsData) => {
-    setMoviesAndTVShowsData(moviesAndTVShowsData)
-    navigate(`profile/:${query}`)
+    setProfileData(moviesAndTVShowsData)
+    navigate(`/profile/${query}`)
   }
 
   return (
@@ -50,7 +51,7 @@ export default function Search({setMoviesAndTVShowsData}) {
         <div className='map-card-area'>
           {movies && movies.map((data, key) => (
             <div key={key} onClick={() => moviesAndTVShowsPickHandler(data)}>
-              <Card poster={data.poster_path} title={data.name} overview={data.overview} releaseDate={data.first_air_date} voteAverage={data.vote_average} language={data.original_language}/>
+              <Card poster={data.poster_path} title={data.title} overview={data.overview} releaseDate={data.release_date} voteAverage={data.vote_average} language={data.original_language}/>
             </div>
           ))}
           {TVShows && TVShows.map((data, key) => (

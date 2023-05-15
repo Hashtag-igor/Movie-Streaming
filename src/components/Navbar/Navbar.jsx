@@ -23,10 +23,10 @@ export default function Navbar() {
     <div className="navbar">
         <nav className="navbar-container">
             <div className="navbar-logo-area">
-            <Link to="/">THT</Link>
+              <Link to="/">THT</Link>
             </div>
             <form onSubmit={handleSubmit} className="navbar-search-area">
-                <input type="text" placeholder="Buscar filme" value={search} onChange={(e) => setSearch(e.target.value)} />
+              <input type="text" placeholder="Buscar filme" value={search} onChange={(e) => setSearch(e.target.value)} />
             </form>
         </nav>
     </div>

@@ -8,14 +8,15 @@ import {BrowserRouter, Routes, Route} from "react-router-dom"
 
 export default function Router() {
   const [moviesAndTVShowsData, setmoviesAndTVShowsData] = useState([])
-  
+  const [profileData, setProfileData] = useState([])
+
   return (
     <BrowserRouter>
         <Routes>
             <Route path="/" element={<Home setmoviesAndTVShowsData={setmoviesAndTVShowsData}/>}/>
-            <Route path="/profile/:id" element={<Profile moviesData={moviesAndTVShowsData}/>} />
+            <Route path="/profile/:id" element={<Profile profileData={profileData}/>} />
             <Route path="/profile" element={<Profile moviesAndTVShowsData={moviesAndTVShowsData}/>} />
-            <Route path="/search" element={<Search setmoviesAndTVShowsData={setmoviesAndTVShowsData}/>} />
+            <Route path="/search" element={<Search setProfileData={setProfileData}/>} />
         </Routes>
     </BrowserRouter>
   )
