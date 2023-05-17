@@ -120,6 +120,10 @@ export default function Home({setmoviesAndTVShowsData}) {
   return (
     <div className='home'>
       <Navbar />
+      <div className='home-description'>
+        <h1>Welcome,</h1>
+        <h2>Find movies, Tv shows and more on THTV Streaming. Explore now..</h2>
+      </div>
       <div className='home-card-container'>
         {/*MOVIES */}
         <h2 className='home-card-title'>Rated Movies</h2>

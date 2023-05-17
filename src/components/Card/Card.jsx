@@ -10,7 +10,7 @@ export default function Card({ title, releaseDate, voteAverage, poster }) {
                 <img src={imgURL + poster} alt="imagem do filme" />
             </div>
             <div>
-                <div className="card-vote">{voteAverage}<span style={{fontSize: "10px"}}>%</span></div>
+                <div className="card-vote">{voteAverage.toFixed(1)}<span style={{fontSize: "10px"}}>%</span></div>
             </div>
             <div className="card-title-date">
               <h2 className="card-title">{title}</h2>

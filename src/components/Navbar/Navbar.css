@@ -1,8 +1,7 @@
 .navbar{
-    background-color: #1f4242;
+    background-color: black;
     padding: 10px;
-    border-bottom: 3px solid #152e2e;
-    color: white;
+    border-bottom: 3px solid #070707;;
     font-weight: 600;
     letter-spacing: 1px;
 }
@@ -17,8 +16,25 @@
 
 .navbar-logo-area{
     font-size: 40px;
+    color: #DAA520;
+    letter-spacing: 2px;
 }
 
 .navbar-search-area{
- 
+    display: flex;
+    align-items: center;
+}
+.navbar-search-area input{
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-right: 5px;
+    letter-spacing: 1px;
+    font-size: 14px;
+    border: none;
+}
+.navbar-search-area button{
+    padding: 8px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
 }

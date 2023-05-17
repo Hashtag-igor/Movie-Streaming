@@ -1,7 +1,23 @@
-.home{
-    background-color: white;
+  .home{
   }
   
+  .home-description{
+    border-bottom: 3px solid #161616;
+    padding: 140px;
+    color: white;
+    background-image: url("https://cdn.pixabay.com/photo/2018/11/30/18/30/camera-3848320_1280.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+  .home-description h1{
+    margin: 0px 0px 10px 20px;
+    font-size: 60px;
+  }
+  .home-description h2{
+    margin: 10px 0px 0px 20px;
+    font-size: 28px;
+  }
+
   .home-card-container{
     display: flex;
     flex-direction: column;

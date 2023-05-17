@@ -10,3 +10,4 @@ If you want to see the project in real time: https://movie-streaming-ivory.verce
 
 used:
     react router dom (npm i react-router-dom)
+    react-icons (npm install react-icons --save)
