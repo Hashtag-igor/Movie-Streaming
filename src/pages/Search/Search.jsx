@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 
 import { useSearchParams, useNavigate } from "react-router-dom";
 
+import "./Search.css"
+
 import Navbar from "../../components/Navbar/Navbar";
 import Card from "../../components/Card/Card";
 
@@ -47,16 +49,16 @@ export default function Search({setProfileData}) {
   return (
     <div>
         <Navbar />
-        <h2 className='home-card-title'>Resultados para: {query}</h2>
+        <h2 className="search">Resultados para: <span className="search-results">{query}</span></h2>
         <div className='map-card-area'>
           {movies && movies.map((data, key) => (
             <div key={key} onClick={() => moviesAndTVShowsPickHandler(data)}>
-              <Card poster={data.poster_path} title={data.title} overview={data.overview} releaseDate={data.release_date} voteAverage={data.vote_average} language={data.original_language}/>
+              <Card poster={data.poster_path} title={data.title} overview={data.overview} releaseDate={data.release_date} voteAverage={data.vote_average} backDrop={data.backdrop_path} />
             </div>
           ))}
           {TVShows && TVShows.map((data, key) => (
             <div key={key} onClick={() => moviesAndTVShowsPickHandler(data)}>
-              <Card poster={data.poster_path} title={data.name} overview={data.overview} releaseDate={data.first_air_date} voteAverage={data.vote_average} language={data.original_language}/>
+              <Card poster={data.poster_path} title={data.name} overview={data.overview} releaseDate={data.first_air_date} voteAverage={data.vote_average} backDrop={data.backdrop_path} />
             </div>
           ))}
         </div>

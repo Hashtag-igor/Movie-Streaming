@@ -1,21 +1,36 @@
 .profile{
     padding: 30px 0;
+    position: relative;
+}
+
+.profile-background{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: .5;
 }
 
 .profile-area{
     display: flex;
     align-items: center;
-    width: 70%;
+    width: 80%;
     margin: auto;
     gap: 0 50px;
     padding: 30px 0;
+    margin-bottom: 20px;
 }
 
 .profile-title{
-    font-size: 26px;
-    font-weight: 600;
+    font-size: 42px;
     letter-spacing: 1px;
     text-align: center;
+    margin-bottom: 15px;
+    width: 95%;
+    margin: auto;
+    text-shadow: 2px 1px 1px #a5a5a5;
 }
 
 .profile-components{
@@ -38,76 +53,154 @@
 }
 
 .vote-average{
+    position: relative;
+    background-color: #000;
+    width: 90px;
+    height: 90px;
+    margin: auto;
     border-radius: 50%;
-    border: 4px solid #000000ee;
-    padding: 1px;
-    width: 40px;
-    height: 40px;
+}
+.red, .yellow, .green, .white{
+    font-weight: 600;
+    font-size: 26px;
+    color: white;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 500;
-    font-size: 19px;
-    color: white;
-    background-color: #1f4242;
 }
-
-.language-box{
-    padding: 3px 5px;
-    border-radius: 4px;
-    font-size: 18px;
-    background-color: transparent;
+.red{
+    border-top: 5px solid #ff0000;
+    border-right: 5px solid #4b0000;
+    border-bottom: 5px solid #4b0000;
+    border-left: 5px solid #4b0000;
+}
+.yellow{
+    border-top: 5px solid #fffb00;
+    border-right: 5px solid #fffb00;
+    border-bottom: 5px solid #807d00;
+    border-left: 5px solid #807d00;
+}
+.green{
+    border-top: 5px solid #0fc209;
+    border-right: 5px solid #0fc209;
+    border-bottom: 5px solid #0fc209;
+    border-left: 5px solid #033500;
+}
+.white{
+    border-top: 5px solid #c2c2c2;
+    border-right: 5px solid #c2c2c2;
+    border-bottom: 5px solid #c2c2c2;
+    border-left: 5px solid #c2c2c2;
 }
 
 .profile-descriptions{
     display: flex;
     flex-direction: column;
     gap: 30px 0;
-    background-color: orange;
+    background-color: #ffffff;
+    border: 4px solid #000000ee;
+    padding: 30px 0;
+    box-shadow: 10px 10px;
 }
 
 .overview{
     text-align: justify;
+    width: 90%;
+    margin: auto;
+    font-size: 18px;
 }
 
-.overview-title{
+.profile-all-title{
     margin-bottom: 10px;
     font-size: 20px;
 }
 
+
 @media screen and (max-width: 768px){
+    .profile{
+        height: 100%;
+        padding: 10px 0;
+    }
+    .profile-background{
+        background-position: center;
+        height: 100%;
+    }
     .profile-area{
         flex-direction: column;
-        gap: 40px 0 ;
+        gap: 40px 0;
         padding: 20px 0;
         width: 90%;
     }
-
     .profile-title{
-        font-size: 22px;
+        font-size: 38px;
     }
-
+    .profile-components:first-child{
+        width: 100%;
+    }
     .profile-descriptions{
-        width: 85%;
-        gap: 25px 0;
+        width: 90%;
     }
-
     .profile-img{
-        width: 320px;
         height: 450px;
     }
-
-    .overview-title{
-        margin-bottom: 10px;
-        font-size: 18px;
-    }
-
-    .vote-average{
-        position: initial;
-        padding: 5px;
-        border: 5px solid #000000ee;
+    .profile-all-title{
         font-size: 22px;
-        transform: translate(0, 0);
     }
-    
+    .vote-average{
+        padding: 1px;
+    }
+}
+
+
+@media screen and (max-width: 480px){
+    .profile{
+        height: 100%;
+        padding: 10px 0;
+    }
+    .profile-background{
+        background-position: center;
+        height: 100%;
+    }
+    .profile-area{
+        flex-direction: column;
+        gap: 40px 0;
+        padding: 20px 0;
+        width: 90%;
+    }
+    .profile-title{
+        font-size: 32px;
+    }
+    .profile-components:first-child{
+        width: 100%;
+    }
+    .profile-descriptions{
+        width: 90%;
+        gap: 25px 0;
+    }
+    .profile-img{
+        height: 400px;
+        width: 80%;
+    }
+    .profile-all-title{
+        font-size: 20px;
+    }
+    .vote-average{
+        padding: 1px;
+        width: 70px;
+        height: 70px;
+    } 
+    .red, .yellow, .green, .white{
+        font-size: 22px;
+        width: 50px;
+        height: 50px;
+    }
 }

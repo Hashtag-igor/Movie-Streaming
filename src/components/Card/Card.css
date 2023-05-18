@@ -5,7 +5,6 @@
     border-radius: 10px;
     cursor: pointer;
     background-color: white;
-    margin-bottom: 0;
     padding-bottom: 30px;
 }
 
@@ -20,8 +19,6 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin: auto;
-    gap: 5px 0;
 }
 
 .card-components-img img{
@@ -37,26 +34,58 @@
 }
 
 .card-vote{
+    display: flex;
+    font-weight: 500;
+    font-size: 19px;
+    transform: translate(10px, -40px);
+    position: relative;
+    background-color: #000;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    border: 4px solid #000000ee;
     padding: 1px;
+    margin-bottom: -25px;
+}
+.red-card, .yellow-card, .green-card, .white-card{
+    font-weight: 600;
+    font-size: 17px;
+    color: white;
     width: 40px;
     height: 40px;
+    border-radius: 50%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 500;
-    font-size: 19px;
-    position: absolute;
-    transform: translate(10px, -40px);
-    color: white;
-    background-color: #1f4242;
 }
-
-.card-vote:hover{
-    background-color: white;
-    color: #1f4242;
-    border: 4px solid white;
+.red-card{
+    border-top: 5px solid #ff0000;
+    border-right: 5px solid #4b0000;
+    border-bottom: 5px solid #4b0000;
+    border-left: 5px solid #4b0000;
+}
+.yellow-card{
+    border-top: 5px solid #fffb00;
+    border-right: 5px solid #fffb00;
+    border-bottom: 5px solid #807d00;
+    border-left: 5px solid #807d00;
+}
+.green-card{
+    border-top: 5px solid #0fc209;
+    border-right: 5px solid #0fc209;
+    border-bottom: 5px solid #0fc209;
+    border-left: 5px solid #033500;
+}
+.white-card{
+    border-top: 5px solid #c2c2c2;
+    border-right: 5px solid #c2c2c2;
+    border-bottom: 5px solid #c2c2c2;
+    border-left: 5px solid #c2c2c2;
 }
 
 .release-date{
@@ -67,5 +96,13 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
-    margin-top: 10px;
 }
+
+
+@media screen and (max-width: 480px){
+    .card{
+        width: 280px;
+        padding-bottom: 15px;
+    }
+}
+

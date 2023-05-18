@@ -36,7 +36,7 @@ export default function Navbar() {
             <form className="navbar-search-area">
               <input type="text" placeholder="Search..." value={search} onChange={(e) => setSearch(e.target.value)} onKeyDown={handleKeyDown}/>
               <button onClick={handleSubmit}>
-                <SlMagnifier />
+                <SlMagnifier/>
               </button>
             </form>
         </nav>

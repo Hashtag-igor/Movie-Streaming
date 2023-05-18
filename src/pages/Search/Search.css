@@ -1,0 +1,19 @@
+.search{
+    font-size: 34px;
+    padding: 30px 0 40px 0; 
+    margin-left: 20px;
+}
+
+.search-results{
+    color: #db9d00;
+    text-shadow: 2px 1px 1px black
+}
+
+
+@media screen and (max-width: 768px){
+    .search{
+        font-size: 26px;
+        padding: 30px 0 40px 0; 
+        margin-left: 20px;
+    }
+}
