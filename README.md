@@ -1,13 +1,13 @@
-## project still in development..
+# project still in development..
 
-api: 
+## Api: 
     https://www.themoviedb.org/
 
-api request:
+## api request:
     https://api.themoviedb.org/3/movie/550?api_key=
 
-If you want to see the project in real time: https://movie-streaming-ivory.vercel.app/
+## If you want to see the project in real time: https://movie-streaming-ivory.vercel.app/
 
-used:
+## Used:
     react router dom (npm i react-router-dom)
     react-icons (npm install react-icons --save)
