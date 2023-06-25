@@ -26,8 +26,8 @@ const NavbarLogoArea = styled.div`
 `
 
 const LogoLink = styled(Link)`
-  color: "#e6aa13";
-  text-shadow: "0.1em 0.1em #333";
+  color: #e6aa13;
+  text-shadow: 0.1em 0.1em #333;
 `
 
 const NavbarSearchArea = styled.form`
@@ -82,7 +82,7 @@ export default function Navbar() {
     <NavbarContainer>
         <NavbarWrapper>
             <NavbarLogoArea>
-              <LogoLink to="/" style={{color: "#e6aa13", textShadow: "0.1em 0.1em #333" }}>THTV</LogoLink>
+              <LogoLink to="/">THTV</LogoLink>
             </NavbarLogoArea>
             <NavbarSearchArea>
               <NavbarSearchAreaInput type="text" placeholder="Search..." value={search} onChange={(e) => setSearch(e.target.value)} onKeyDown={handleKeyDown}/>
