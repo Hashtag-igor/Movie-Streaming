@@ -1,14 +1,71 @@
 import { useState, useEffect } from 'react';
-
-import './Home.css'
+import styled from "styled-components"
+import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Card from "../../components/Card/Card";
 import Navbar from '../../components/Navbar/Navbar';
-import { useNavigate } from 'react-router-dom';
 
 //importando "moviesURL" e "apiKEY" do .env
 const moviesURL = import.meta.env.VITE_API;
 const apiKEY = import.meta.env.VITE_API_KEY;
 const TVURL = import.meta.env.VITE_TV_API;
+
+
+const HomeContainer = styled.div`
+
+`
+
+const HomeDescriptionArea = styled.div`
+  border-bottom: 3px solid #161616;
+  padding: 140px;
+  color: white;
+  background-image: url("https://cdn.pixabay.com/photo/2018/11/30/18/30/camera-3848320_1280.jpg");
+  background-position: center;
+  background-size: cover;
+  text-shadow: 3px 3px 2px #000000;
+`
+
+const HomeDescriptionTitle = styled.h1`
+  margin: 0px 0px 10px 20px;
+  font-size: 60px;
+`
+
+const HomeDescriptionSubTitle = styled.h2`
+  margin: 10px 0px 0px 20px;
+  font-size: 28px;
+`
+
+const HomeCardArea = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  & > :first-child{
+    margin-top: 40px;
+  }
+`
+
+const HomeCardTitle = styled.h2`
+  margin: 10px 0 20px 20px;
+  text-shadow: 2px 1px 1px #666666;
+`
+
+const MapCardArea = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+  gap: 30px 0;
+`
+
+const MapCardWrapper = styled.div`
+
+`
+
+
+//Para resolver o erro da passagem de props abaixo
+Home.propTypes = {
+  setmoviesAndTVShowsData: PropTypes.string.isRequired
+};
 
 export default function Home({setmoviesAndTVShowsData}) {
   const [topMovies, setTopMovies] = useState([])
@@ -118,88 +175,88 @@ export default function Home({setmoviesAndTVShowsData}) {
   }
 
   return (
-    <div className='home'>
+    <HomeContainer>
       <Navbar />
-      <div className='home-description'>
-        <h1>Welcome,</h1>
-        <h2>Find movies, Tv shows and more on THTV Streaming. Explore now..</h2>
-      </div>
-      <div className='home-card-container'>
+      <HomeDescriptionArea>
+        <HomeDescriptionTitle>Welcome,</HomeDescriptionTitle>
+        <HomeDescriptionSubTitle>Find movies, Tv shows and more on THTV Streaming. Explore now..</HomeDescriptionSubTitle>
+      </HomeDescriptionArea>
+      <HomeCardArea>
         {/*MOVIES */}
-        <h2 className='home-card-title'>Rated Movies</h2>
-        <div className='map-card-area'>
+        <HomeCardTitle>Rated Movies</HomeCardTitle>
+        <MapCardArea>
           {topMovies && topMovies.filter((item, idx) => idx < 18).map((top, key) => (
-            <div key={key} onClick={() => moviesAndTVShowsPickHandler(top)}>
+            <MapCardWrapper key={key} onClick={() => moviesAndTVShowsPickHandler(top)}>
               <Card poster={top.poster_path} title={top.title} overview={top.overview} releaseDate={top.release_date} voteAverage={top.vote_average} />
-            </div>
+            </MapCardWrapper>
           ))}
-        </div>
+        </MapCardArea>
 
-        <h2 className='home-card-title'>Popular Movies</h2>
-        <div className='map-card-area'>
+        <HomeCardTitle>Popular Movies</HomeCardTitle>
+        <MapCardArea>
           {popularMovies && popularMovies.filter((item, idx) => idx < 18).map((popular, key) => (
-            <div key={key} onClick={() => moviesAndTVShowsPickHandler(popular)}>
+            <MapCardWrapper key={key} onClick={() => moviesAndTVShowsPickHandler(popular)}>
               <Card poster={popular.poster_path} title={popular.title} overview={popular.overview} releaseDate={popular.release_date} voteAverage={popular.vote_average} />
-            </div>
+            </MapCardWrapper>
           ))}
-        </div>
+        </MapCardArea>
 
-        <h2 className='home-card-title'>Upcoming Movies</h2>
-        <div className='map-card-area'>
+        <HomeCardTitle>Upcoming Movies</HomeCardTitle>
+        <MapCardArea>
           {upcomingMovies && upcomingMovies.filter((item, idx) => idx < 18).map((upcoming, key) => (
-            <div key={key} onClick={() => moviesAndTVShowsPickHandler(upcoming)}>
+            <MapCardWrapper key={key} onClick={() => moviesAndTVShowsPickHandler(upcoming)}>
               <Card poster={upcoming.poster_path} title={upcoming.title} overview={upcoming.overview} releaseDate={upcoming.release_date} voteAverage={upcoming.vote_average} language={top.original_language}/>
-            </div>
+            </MapCardWrapper>
           ))}
-        </div>
+        </MapCardArea>
         
-        <h2 className='home-card-title'>Now Playing Movies</h2>
-        <div className='map-card-area'>
+        <HomeCardTitle>Now Playing Movies</HomeCardTitle>
+        <MapCardArea>
           {nowPlayingMovies && nowPlayingMovies.filter((item, idx) => idx < 18).map((now, key) => (
-            <div key={key} onClick={() => moviesAndTVShowsPickHandler(now)}>
+            <MapCardWrapper key={key} onClick={() => moviesAndTVShowsPickHandler(now)}>
               <Card poster={now.poster_path} title={now.title} overview={now.overview} releaseDate={now.release_date} voteAverage={now.vote_average} language={now.original_language}/>
-            </div>
+            </MapCardWrapper>
           ))}
-        </div>
+        </MapCardArea>
 
         {/*TV SHOWS/SERIES */}
-        <h2 className='home-card-title'>TV Shows Airing Today</h2>
-        <div className='map-card-area'>
+        <HomeCardTitle>TV Shows Airing Today</HomeCardTitle>
+        <MapCardArea>
           {airingTodayTV && airingTodayTV.filter((item, idx) => idx < 18).map((airingToday, key) => (
-            <div key={key} onClick={() => moviesAndTVShowsPickHandler(airingToday)}>
+            <MapCardWrapper key={key} onClick={() => moviesAndTVShowsPickHandler(airingToday)}>
               <Card poster={airingToday.poster_path} title={airingToday.name} overview={airingToday.overview} releaseDate={airingToday.first_air_date} voteAverage={airingToday.vote_average} language={airingToday.original_language}/>
-            </div>
+            </MapCardWrapper>
           ))}
-        </div>
+        </MapCardArea>
 
-        <h2 className='home-card-title'>Currently Airing TV Shows</h2>
-        <div className='map-card-area'>
+        <HomeCardTitle>Currently Airing TV Shows</HomeCardTitle>
+        <MapCardArea>
           {onTheAirTV && onTheAirTV.filter((item, idx) => idx < 18).map((onTheAir, key) => (
-            <div key={key} onClick={() => moviesAndTVShowsPickHandler(onTheAir)}>
+            <MapCardWrapper key={key} onClick={() => moviesAndTVShowsPickHandler(onTheAir)}>
               <Card poster={onTheAir.poster_path} title={onTheAir.name} overview={onTheAir.overview} releaseDate={onTheAir.first_air_date} voteAverage={onTheAir.vote_average} language={onTheAir.original_language}/>
-            </div>
+            </MapCardWrapper>
           ))}
-        </div>
+        </MapCardArea>
 
-        <h2 className='home-card-title'>Top Rated TV Shows</h2>
-        <div className='map-card-area'>
+        <HomeCardTitle>Top Rated TV Shows</HomeCardTitle>
+        <MapCardArea>
           {topTV && topTV.filter((item, idx) => idx < 18).map((top, key) => (
-            <div key={key} onClick={() => moviesAndTVShowsPickHandler(top)}>
+            <MapCardWrapper key={key} onClick={() => moviesAndTVShowsPickHandler(top)}>
               <Card poster={top.poster_path} title={top.name} overview={top.overview} releaseDate={top.first_air_date} voteAverage={top.vote_average} voteCount={top.vote_count}/>
-            </div>
+            </MapCardWrapper>
           ))}
-        </div>
+        </MapCardArea>
 
-        <h2 className='home-card-title'>Popular TV Shows</h2>
-        <div className='map-card-area'>
+        <HomeCardTitle>Popular TV Shows</HomeCardTitle>
+        <MapCardArea>
           {popularTV && popularTV.filter((item, idx) => idx < 18).map((popularTVShows, key) => (
-            <div key={key} onClick={() => moviesAndTVShowsPickHandler(popularTVShows)}>
+            <MapCardWrapper key={key} onClick={() => moviesAndTVShowsPickHandler(popularTVShows)}>
               <Card poster={popularTVShows.poster_path} title={popularTVShows.name} overview={popularTVShows.overview} releaseDate={popularTVShows.first_air_date} voteAverage={popularTVShows.vote_average} language={popularTVShows.original_language}/>
-            </div>
+            </MapCardWrapper>
           ))}
-        </div>
-      </div>
-    </div>
+        </MapCardArea>
+      </HomeCardArea>
+    </HomeContainer>
   )
 }
 
