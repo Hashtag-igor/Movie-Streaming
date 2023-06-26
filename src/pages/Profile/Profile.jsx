@@ -1,12 +1,15 @@
-// import { useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
-
+import PropTypes from 'prop-types';
 import Navbar from "../../components/Navbar/Navbar";
-
 import "./Profile.css"
 
 const imgURL = import.meta.env.VITE_IMG
 const imgURLTV = import.meta.env.VITE_TV_IMG
+
+
+Profile.propTypes = {
+  moviesAndTVShowsData: PropTypes.object,
+  profileData: PropTypes.object,
+};
 
 export default function Profile({moviesAndTVShowsData, profileData}) {
   const { name, title, poster_path, overview, release_date, first_air_date, vote_average, backdrop_path } = profileData || moviesAndTVShowsData;
