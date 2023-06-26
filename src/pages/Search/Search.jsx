@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-
 import { useSearchParams, useNavigate } from "react-router-dom";
-
+import PropTypes from 'prop-types';
 import "./Search.css"
 
 import Navbar from "../../components/Navbar/Navbar";
@@ -10,6 +9,11 @@ import Card from "../../components/Card/Card";
 const TVShowsURL = import.meta.env.VITE_TV_SEARCH;
 const MoviesURL = import.meta.env.VITE_SEARCH;
 const apiKEY = import.meta.env.VITE_API_KEY;
+
+
+Search.propTypes = {
+  setProfileData: PropTypes.func,
+};
 
 export default function Search({setProfileData}) {
   const [movies, setMovies] = useState([])
