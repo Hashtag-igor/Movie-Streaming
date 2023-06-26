@@ -11,9 +11,7 @@ const apiKEY = import.meta.env.VITE_API_KEY;
 const TVURL = import.meta.env.VITE_TV_API;
 
 
-const HomeContainer = styled.div`
-
-`
+const HomeContainer = styled.div``
 
 const HomeDescriptionArea = styled.div`
   border-bottom: 3px solid #161616;
@@ -23,18 +21,19 @@ const HomeDescriptionArea = styled.div`
   background-position: center;
   background-size: cover;
   text-shadow: 3px 3px 2px #000000;
-`
 
+  @media screen and (max-width: 768px){
+    padding: 90px 15px;
+  }
+`
 const HomeDescriptionTitle = styled.h1`
   margin: 0px 0px 10px 20px;
   font-size: 60px;
 `
-
 const HomeDescriptionSubTitle = styled.h2`
   margin: 10px 0px 0px 20px;
   font-size: 28px;
 `
-
 const HomeCardArea = styled.div`
   display: flex;
   flex-direction: column;
@@ -43,12 +42,10 @@ const HomeCardArea = styled.div`
     margin-top: 40px;
   }
 `
-
 const HomeCardTitle = styled.h2`
   margin: 10px 0 20px 20px;
   text-shadow: 2px 1px 1px #666666;
 `
-
 export const MapCardArea = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -56,10 +53,7 @@ export const MapCardArea = styled.div`
   margin-bottom: 60px;
   gap: 30px 0;
 `
-
-export const MapCardWrapper = styled.div`
-
-`
+export const MapCardWrapper = styled.div``
 
 
 //Para resolver o erro da passagem de props abaixo
