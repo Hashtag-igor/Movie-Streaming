@@ -42,6 +42,10 @@ const NavbarSearchAreaInput = styled.input`
   letter-spacing: 1px;
   font-size: 14px;
   border: none;
+
+  @media screen and (max-width: 768px){
+    font-size: 18px;
+  }
 `
 
 const NavbarSearchAreaButton = styled.button`
@@ -54,6 +58,10 @@ const NavbarSearchAreaButton = styled.button`
   &:hover{
     background-color: #ffb700;
     transition: 0.5s;
+  }
+
+  @media screen and (max-width: 768px){
+    font-size: 18px;
   }
 `
 
