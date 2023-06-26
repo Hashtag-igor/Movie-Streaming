@@ -32,6 +32,11 @@ const ProfileRed = styled(RedCard)`
 const ProfileContainer = styled.div`
   padding: 30px 0;
   position: relative;
+
+  @media screen and (max-width: 768px){
+    height: 100%;
+    padding: 10px 0;
+}
 `
 const ProfileBackground = styled.div`
   position: absolute;
@@ -42,6 +47,11 @@ const ProfileBackground = styled.div`
   right: 0;
   opacity: .5;
   background-image: url(${props => props.imageUrl});
+
+  @media screen and (max-width: 768px){
+    background-position: center;
+    height: 100%;
+  }
 `
 const ProfileWrapper = styled.div`
   display: flex;
@@ -51,16 +61,33 @@ const ProfileWrapper = styled.div`
   gap: 0 50px;
   padding: 30px 0;
   margin-bottom: 20px;
+
+  @media screen and (max-width: 768px){
+    flex-direction: column;
+    gap: 40px 0;
+    padding: 20px 0;
+    width: 90%;
+  }
 `
 const ProfileComponents = styled.div`
   display: flex;
   justify-content: space-around;
+
+  @media screen and (max-width: 768px){
+    & > :first-child{
+      width: 100%;
+    }
+  }
 `
 const ProfileImg = styled.img`
   border-radius: 1px;
   width: 370px;
   height: 500px;
   border: 8px solid black;
+
+  @media screen and (max-width: 768px){
+    height: 450px;
+  }
 `
 const ProfileInfoContainer = styled.div`
   display: flex;
@@ -70,6 +97,10 @@ const ProfileInfoContainer = styled.div`
   border: 4px solid #000000ee;
   padding: 30px 0;
   box-shadow: 10px 10px;
+
+  @media screen and (max-width: 768px){
+    width: 90%;
+  }
 `
 const ProfileInfoTitle = styled.h2`
   font-size: 42px;
@@ -79,6 +110,10 @@ const ProfileInfoTitle = styled.h2`
   width: 95%;
   margin: auto;
   text-shadow: 2px 1px 1px #a5a5a5; 
+
+  @media screen and (max-width: 768px){
+    font-size: 38px;
+  }
 `
 const ProfileVoteAndDateContainer = styled.div`
   width: 100%;
@@ -91,6 +126,10 @@ const ProfileVoteContainer = styled.div``
 const ProfileInfoSubTitle = styled.h2`
   margin-bottom: 10px;
   font-size: 20px;
+
+  @media screen and (max-width: 768px){
+    font-size: 22px;
+}
 `
 const ProfileVoteArea = styled.div`
   position: relative;
@@ -99,6 +138,10 @@ const ProfileVoteArea = styled.div`
   height: 90px;
   margin: auto;
   border-radius: 50%;
+
+  @media screen and (max-width: 768px){
+    padding: 1px;
+  }
 `
 const ProfileDateArea = styled.div``
 
