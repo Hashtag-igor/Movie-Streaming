@@ -11,8 +11,12 @@ const apiKEY = import.meta.env.VITE_API_KEY;
 const TVURL = import.meta.env.VITE_TV_API;
 
 
-const HomeContainer = styled.div``
-
+const HomeContainer = styled.div`
+  @media screen and (max-width: 480px){
+    width: 100%;
+    overflow-x: hidden;
+  }
+`
 const HomeDescriptionArea = styled.div`
   border-bottom: 3px solid #161616;
   padding: 140px;
@@ -25,14 +29,32 @@ const HomeDescriptionArea = styled.div`
   @media screen and (max-width: 768px){
     padding: 90px 15px;
   }
+
+  @media screen and (max-width: 480px){
+    border-bottom: 2px solid #161616;
+    padding: 70px 20px;
+    width: 100%;
+    color: white;
+  }
 `
 const HomeDescriptionTitle = styled.h1`
   margin: 0px 0px 10px 20px;
   font-size: 60px;
+
+  @media screen and (max-width: 480px){
+    margin: 0;
+    font-size: 46px;
+  }
 `
 const HomeDescriptionSubTitle = styled.h2`
   margin: 10px 0px 0px 20px;
   font-size: 28px;
+
+  @media screen and (max-width: 480px){
+    margin: 10px 0px 0px 0px;
+    font-size: 24px;
+    width: 95%;
+  }
 `
 const HomeCardArea = styled.div`
   display: flex;
