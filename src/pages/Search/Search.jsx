@@ -24,7 +24,7 @@ const SearchResults = styled.span`
 
 
 Search.propTypes = {
-  setProfileData: PropTypes.object,
+  setProfileData: PropTypes.func,
 };
 
 export default function Search({setProfileData}) {

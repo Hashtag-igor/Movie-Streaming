@@ -64,7 +64,7 @@ export const MapCardWrapper = styled.div`
 
 //Para resolver o erro da passagem de props abaixo
 Home.propTypes = {
-  setmoviesAndTVShowsData: PropTypes.string.isRequired
+  setmoviesAndTVShowsData: PropTypes.func,
 };
 
 export default function Home({setmoviesAndTVShowsData}) {

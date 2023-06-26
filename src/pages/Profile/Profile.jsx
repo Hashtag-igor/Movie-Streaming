@@ -113,8 +113,8 @@ const ProfileOverviewArea = styled.div`
 
 
 Profile.propTypes = {
-  moviesAndTVShowsData: PropTypes.object,
-  profileData: PropTypes.object,
+  moviesAndTVShowsData: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  profileData: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 };
 
 export default function Profile({moviesAndTVShowsData, profileData}) {
