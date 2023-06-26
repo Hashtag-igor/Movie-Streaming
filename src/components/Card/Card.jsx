@@ -20,13 +20,11 @@ const CardContainer = styled.div`
     border: 3px solid black;
   }
 `
-
 const CardComponents = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
 `
-
 const CardImgArea = styled.div``
 
 const CardImg = styled.img`
@@ -34,7 +32,6 @@ const CardImg = styled.img`
   width: 100%;
   border-radius: 6px 6px 0 0;
 `
-
 const CardVoteArea = styled.div`
   display: flex;
   font-weight: 500;
@@ -48,42 +45,20 @@ const CardVoteArea = styled.div`
   padding: 1px;
   margin-bottom: -25px;
 `
-
 const CardInfoArea = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
   text-align: center;
 `
-
 const CardInfoTitle = styled.h2`
   /* text-align: center; */
   font-weight: 800;
   font-size: 17px;
 `
-
 const CardInfoDate = styled.div`
   /* text-align: center; */
 `
-
-// export const ColorsCards = styled.div`
-//   font-weight: 600;
-//   font-size: 17px;
-//   color: white;
-//   width: 40px;
-//   height: 40px;
-//   border-radius: 50%;
-//   top: 0;
-//   bottom: 0;
-//   left: 0;
-//   right: 0;
-//   margin: auto;
-//   position: absolute;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//`
-
 export const RedCard = styled.div`
   border-top: 5px solid #ff0000;
   border-right: 5px solid #4b0000;
@@ -105,7 +80,6 @@ export const RedCard = styled.div`
   align-items: center;
   justify-content: center;
 `
-
 export const YellowCard = styled.div`
   border-top: 5px solid #fffb00;
   border-right: 5px solid #fffb00;
@@ -127,7 +101,6 @@ export const YellowCard = styled.div`
   align-items: center;
   justify-content: center;
 `
-
 export const GreenCard = styled.div`
   border-top: 5px solid #0fc209;
   border-right: 5px solid #0fc209;
@@ -149,7 +122,6 @@ export const GreenCard = styled.div`
   align-items: center;
   justify-content: center;
 `
-
 export const WhiteCard = styled.div`
   border-top: 5px solid #c2c2c2;
   border-right: 5px solid #c2c2c2;
@@ -171,7 +143,6 @@ export const WhiteCard = styled.div`
   align-items: center;
   justify-content: center;
 `
-
 export const Percent = styled.span`
   font-size: 10px;
 `
@@ -207,7 +178,7 @@ export default function Card({ title, releaseDate, voteAverage, poster }) {
     <CardContainer>
         <CardComponents>
             <CardImgArea>
-                <CardImg src={imgURL + poster} alt="imagem do filme" />
+                <CardImg src={imgURL + poster} alt="imagem do filme"/>
             </CardImgArea>
             <CardVoteArea>
               {voteAverageBox()}

@@ -46,7 +46,7 @@ const ProfileBackground = styled.div`
   left: 0;
   right: 0;
   opacity: .5;
-  background-image: url(${props => props.imageUrl});
+  background-image: url(${props => props.image});
 
   @media screen and (max-width: 768px){
     background-position: center;
@@ -185,7 +185,7 @@ export default function Profile({moviesAndTVShowsData, profileData}) {
     <>
       <Navbar />
       <ProfileContainer>
-        <ProfileBackground imageUrl={`${imgURLTV + backdrop_path ? imgURL + backdrop_path : imgURL + backdrop_path}`}></ProfileBackground>
+        <ProfileBackground image={`${imgURLTV + backdrop_path ? imgURL + backdrop_path : imgURL + backdrop_path}`}></ProfileBackground>
           <ProfileWrapper>
             <ProfileComponents>
               <ProfileImg src={imgURLTV + poster_path ? imgURL + poster_path : imgURL + poster_path} alt="Image not found" />
