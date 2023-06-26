@@ -11,21 +11,45 @@ const ProfileGreen = styled(GreenCard)`
   font-size: 26px;
   width: 70px;
   height: 70px;
+
+  @media screen and (max-width: 480px){
+    font-size: 22px;
+    width: 50px;
+    height: 50px;
+  }
 `
 const ProfileYellow = styled(YellowCard)`
   font-size: 26px;
   width: 70px;
   height: 70px;
+
+  @media screen and (max-width: 480px){
+    font-size: 22px;
+    width: 50px;
+    height: 50px;
+  }
 `
 const ProfileWhite = styled(WhiteCard)`
   font-size: 26px;
   width: 70px;
   height: 70px;
+
+  @media screen and (max-width: 480px){
+    font-size: 22px;
+    width: 50px;
+    height: 50px;
+  }
 `
 const ProfileRed = styled(RedCard)`
   font-size: 26px;
   width: 70px;
   height: 70px;
+
+  @media screen and (max-width: 480px){
+    font-size: 22px;
+    width: 50px;
+    height: 50px;
+  }
 `
 
 
@@ -141,6 +165,11 @@ const ProfileVoteArea = styled.div`
 
   @media screen and (max-width: 768px){
     padding: 1px;
+  }
+
+  @media screen and (max-width: 480px){
+    width: 70px;
+    height: 70px;
   }
 `
 const ProfileDateArea = styled.div``
