@@ -49,7 +49,7 @@ const HomeCardTitle = styled.h2`
   text-shadow: 2px 1px 1px #666666;
 `
 
-const MapCardArea = styled.div`
+export const MapCardArea = styled.div`
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -57,7 +57,7 @@ const MapCardArea = styled.div`
   gap: 30px 0;
 `
 
-const MapCardWrapper = styled.div`
+export const MapCardWrapper = styled.div`
 
 `
 

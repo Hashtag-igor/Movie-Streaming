@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { useSearchParams, useNavigate } from "react-router-dom";
 import PropTypes from 'prop-types';
-import "./Search.css"
-
+import styled from "styled-components"
+import { useSearchParams, useNavigate } from "react-router-dom";
+import {MapCardArea, MapCardWrapper} from "../Home/Home.jsx"
 import Navbar from "../../components/Navbar/Navbar";
 import Card from "../../components/Card/Card";
 
@@ -11,8 +11,20 @@ const MoviesURL = import.meta.env.VITE_SEARCH;
 const apiKEY = import.meta.env.VITE_API_KEY;
 
 
+const SearchTitle = styled.h2`
+  font-size: 34px;
+  padding: 30px 0 40px 0; 
+  margin-left: 20px;
+`
+
+const SearchResults = styled.span`
+  color: #db9d00;
+  text-shadow: 2px 1px 1px black;
+`
+
+
 Search.propTypes = {
-  setProfileData: PropTypes.func,
+  setProfileData: PropTypes.object,
 };
 
 export default function Search({setProfileData}) {
@@ -51,21 +63,21 @@ export default function Search({setProfileData}) {
   }
 
   return (
-    <div>
+    <>
         <Navbar />
-        <h2 className="search">Resultados para: <span className="search-results">{query}</span></h2>
-        <div className='map-card-area'>
+        <SearchTitle>Resultados para: <SearchResults>{query}</SearchResults></SearchTitle>
+        <MapCardArea>
           {movies && movies.map((data, key) => (
-            <div key={key} onClick={() => moviesAndTVShowsPickHandler(data)}>
+            <MapCardWrapper key={key} onClick={() => moviesAndTVShowsPickHandler(data)}>
               <Card poster={data.poster_path} title={data.title} overview={data.overview} releaseDate={data.release_date} voteAverage={data.vote_average} backDrop={data.backdrop_path} />
-            </div>
+            </MapCardWrapper>
           ))}
           {TVShows && TVShows.map((data, key) => (
-            <div key={key} onClick={() => moviesAndTVShowsPickHandler(data)}>
+            <MapCardWrapper key={key} onClick={() => moviesAndTVShowsPickHandler(data)}>
               <Card poster={data.poster_path} title={data.name} overview={data.overview} releaseDate={data.first_air_date} voteAverage={data.vote_average} backDrop={data.backdrop_path} />
-            </div>
+            </MapCardWrapper>
           ))}
-        </div>
-    </div>
+        </MapCardArea>
+    </>
   )
 }
