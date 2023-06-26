@@ -1,9 +1,114 @@
 import PropTypes from 'prop-types';
 import Navbar from "../../components/Navbar/Navbar";
-import "./Profile.css"
+import styled from "styled-components"
+import {GreenCard, RedCard, YellowCard, WhiteCard, Percent} from "../../components/Card/Card.jsx"
 
 const imgURL = import.meta.env.VITE_IMG
 const imgURLTV = import.meta.env.VITE_TV_IMG
+
+
+const ProfileGreen = styled(GreenCard)`
+  font-size: 26px;
+  width: 70px;
+  height: 70px;
+`
+const ProfileYellow = styled(YellowCard)`
+  font-size: 26px;
+  width: 70px;
+  height: 70px;
+`
+const ProfileWhite = styled(WhiteCard)`
+  font-size: 26px;
+  width: 70px;
+  height: 70px;
+`
+const ProfileRed = styled(RedCard)`
+  font-size: 26px;
+  width: 70px;
+  height: 70px;
+`
+
+
+const ProfileContainer = styled.div`
+  padding: 30px 0;
+  position: relative;
+`
+const ProfileBackground = styled.div`
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: .5;
+`
+const ProfileWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+  gap: 0 50px;
+  padding: 30px 0;
+  margin-bottom: 20px;
+`
+const ProfileComponents = styled.div`
+  display: flex;
+  justify-content: space-around;
+`
+const ProfileImg = styled.img`
+  border-radius: 1px;
+  width: 370px;
+  height: 500px;
+  border: 8px solid black;
+`
+const ProfileInfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 30px 0;
+  background-color: #ffffff;
+  border: 4px solid #000000ee;
+  padding: 30px 0;
+  box-shadow: 10px 10px;
+`
+const ProfileInfoTitle = styled.h2`
+  font-size: 42px;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 15px;
+  width: 95%;
+  margin: auto;
+  text-shadow: 2px 1px 1px #a5a5a5; 
+`
+const ProfileVoteAndDateContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+`
+const ProfileVoteContainer = styled.div``
+
+const ProfileInfoSubTitle = styled.h2`
+  margin-bottom: 10px;
+  font-size: 20px;
+`
+const ProfileVoteArea = styled.div`
+  position: relative;
+  background-color: #000;
+  width: 90px;
+  height: 90px;
+  margin: auto;
+  border-radius: 50%;
+`
+const ProfileDateArea = styled.div``
+
+const ProfileDateContent = styled.span``
+
+const ProfileOverviewArea = styled.div`
+  text-align: justify;
+  width: 90%;
+  margin: auto;
+  font-size: 18px;
+`
 
 
 Profile.propTypes = {
@@ -15,63 +120,57 @@ export default function Profile({moviesAndTVShowsData, profileData}) {
   const { name, title, poster_path, overview, release_date, first_air_date, vote_average, backdrop_path } = profileData || moviesAndTVShowsData;
 
   console.log(profileData)
-  
-  // const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if(!moviesAndTVShowsData || !profileData){
-  //   navigate("/")
-  // }
-  // }, []);
-
-  const voteAverage = () => {
+  const voteAverageBox = () => {
     if(vote_average === 0){
-      return <div className="white">{vote_average.toFixed(1)}<span style={{fontSize: "10px"}}>%</span></div>
+      return <ProfileWhite>{vote_average.toFixed(1)}<Percent>%</Percent></ProfileWhite>
     }
     if(vote_average > 0 && vote_average < 5){
-      return <div className="red">{vote_average.toFixed(1)}<span style={{fontSize: "10px"}}>%</span></div>
+      return <ProfileRed>{vote_average.toFixed(1)}<Percent>%</Percent></ProfileRed>
     }
     else if(vote_average > 4 && vote_average < 7){
-      return <div className="yellow">{vote_average.toFixed(1)}<span style={{fontSize: "10px"}}>%</span></div>
+      return <ProfileYellow>{vote_average.toFixed(1)}<Percent>%</Percent></ProfileYellow>
     }
     else if(vote_average > 6 && vote_average <= 10){
-      return <div className="green">{vote_average.toFixed(1)}<span style={{fontSize: "10px"}}>%</span></div>
+      return <ProfileGreen>{vote_average.toFixed(1)}<Percent>%</Percent></ProfileGreen>
     }
   }
+  
 
   return (
     <>
       <Navbar />
-      <div className="profile" >
-        <div className="profile-background" style={{backgroundImage: `url(${imgURLTV + backdrop_path ? imgURL + backdrop_path : imgURL + backdrop_path})`}}></div>
-          <div className="profile-area">
-            <div className="profile-components" >
-              <img className="profile-img" src={imgURLTV + poster_path ? imgURL + poster_path : imgURL + poster_path} alt="Image not found" />
-            </div>
-            <div className="profile-components">
-              <div className="profile-descriptions">
-                <h2 className="profile-title">{title ? title : name}</h2>
-                <div className="date-vote-count">
-                <div>
-                  <h2 className="profile-all-title">vote average</h2>
-                  <div className="vote-average">
-                    {voteAverage()}
-                    {/* {vote_average.toFixed(1)}<span style={{fontSize: "10px"}}>%</span> */}
-                  </div>
-                </div>
-                  <div className="release-date">
-                    <h2 className="profile-all-title">date</h2>
-                    <span>{release_date ? release_date : first_air_date}</span>
-                  </div>
-                </div>
-                <div className="overview">
-                  <h2 className="profile-all-title">Overview</h2>
+      <ProfileContainer>
+        <ProfileBackground style={{backgroundImage: `url(${imgURLTV + backdrop_path ? imgURL + backdrop_path : imgURL + backdrop_path})`}}></ProfileBackground>
+          <ProfileWrapper>
+            <ProfileComponents>
+              <ProfileImg src={imgURLTV + poster_path ? imgURL + poster_path : imgURL + poster_path} alt="Image not found" />
+            </ProfileComponents>
+            <ProfileComponents>
+              <ProfileInfoContainer>
+                <ProfileInfoTitle>{title ? title : name}</ProfileInfoTitle>
+                <ProfileVoteAndDateContainer>
+                  <ProfileVoteContainer>
+                    <ProfileInfoSubTitle>vote average</ProfileInfoSubTitle>
+                    <ProfileVoteArea>
+                      {voteAverageBox()}
+                      {/* {vote_average.toFixed(1)}<span style={{fontSize: "10px"}}>%</span> */}
+                    </ProfileVoteArea>
+                  </ProfileVoteContainer>
+                  <ProfileDateArea>
+                    <ProfileInfoSubTitle>date</ProfileInfoSubTitle>
+                    <ProfileDateContent>{release_date ? release_date : first_air_date}</ProfileDateContent>
+                  </ProfileDateArea>
+                </ProfileVoteAndDateContainer>
+                <ProfileOverviewArea>
+                  <ProfileInfoSubTitle>Overview</ProfileInfoSubTitle>
                   {overview}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                </ProfileOverviewArea>
+              </ProfileInfoContainer>
+            </ProfileComponents>
+          </ProfileWrapper>
+        </ProfileContainer>
     </>
   )
 }
+

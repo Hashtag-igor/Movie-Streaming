@@ -66,7 +66,29 @@ const CardInfoDate = styled.div`
   /* text-align: center; */
 `
 
-export const ColorsCards = styled.div`
+// export const ColorsCards = styled.div`
+//   font-weight: 600;
+//   font-size: 17px;
+//   color: white;
+//   width: 40px;
+//   height: 40px;
+//   border-radius: 50%;
+//   top: 0;
+//   bottom: 0;
+//   left: 0;
+//   right: 0;
+//   margin: auto;
+//   position: absolute;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//`
+
+export const RedCard = styled.div`
+  border-top: 5px solid #ff0000;
+  border-right: 5px solid #4b0000;
+  border-bottom: 5px solid #4b0000;
+  border-left: 5px solid #4b0000;
   font-weight: 600;
   font-size: 17px;
   color: white;
@@ -84,32 +106,70 @@ export const ColorsCards = styled.div`
   justify-content: center;
 `
 
-export const RedCard = styled(ColorsCards)`
-  border-top: 5px solid #ff0000;
-  border-right: 5px solid #4b0000;
-  border-bottom: 5px solid #4b0000;
-  border-left: 5px solid #4b0000;
-`
-
-export const YellowCard = styled(ColorsCards)`
+export const YellowCard = styled.div`
   border-top: 5px solid #fffb00;
   border-right: 5px solid #fffb00;
   border-bottom: 5px solid #807d00;
   border-left: 5px solid #807d00;
+  font-weight: 600;
+  font-size: 17px;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
-export const GreenCard = styled(ColorsCards)`
+export const GreenCard = styled.div`
   border-top: 5px solid #0fc209;
   border-right: 5px solid #0fc209;
   border-bottom: 5px solid #0fc209;
   border-left: 5px solid #033500;
+  font-weight: 600;
+  font-size: 17px;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
-export const WhiteCard = styled(ColorsCards)`
+export const WhiteCard = styled.div`
   border-top: 5px solid #c2c2c2;
   border-right: 5px solid #c2c2c2;
   border-bottom: 5px solid #c2c2c2;
   border-left: 5px solid #c2c2c2;
+  font-weight: 600;
+  font-size: 17px;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 export const Percent = styled.span`
