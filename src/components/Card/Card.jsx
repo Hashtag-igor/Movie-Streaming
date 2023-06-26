@@ -19,6 +19,16 @@ const CardContainer = styled.div`
     color: white;
     border: 3px solid black;
   }
+
+  @media screen and (max-width: 480px){
+    width: 300px;
+    padding-bottom: 15px;
+    border: 1px solid #c7c7c7;
+  
+    &:hover{
+      transition: 0.1s;
+    }
+  }
 `
 const CardComponents = styled.div`
   width: 100%;
