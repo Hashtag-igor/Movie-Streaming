@@ -15,6 +15,10 @@ const SearchTitle = styled.h2`
   font-size: 34px;
   padding: 30px 0 40px 0; 
   margin-left: 20px;
+
+  @media screen and (max-width: 768px){
+    font-size: 26px;
+}
 `
 
 const SearchResults = styled.span`
