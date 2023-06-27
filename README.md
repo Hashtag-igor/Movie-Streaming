@@ -1,4 +1,7 @@
-# project still in development..
+# Movie Streaming Project
+
+## About:
+    This project is a streaming service that offers a catalog of movies and tv shows (top scored, popular movies, upcoming and now playing)
 
 ## Api: 
     https://www.themoviedb.org/
