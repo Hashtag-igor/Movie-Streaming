@@ -86,11 +86,14 @@ const ProfileWrapper = styled.div`
   padding: 30px 0;
   margin-bottom: 20px;
 
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 1024px){
     flex-direction: column;
-    gap: 40px 0;
-    padding: 20px 0;
+    gap: 50px 0;
+  }
+
+  @media screen and (max-width: 768px){
     width: 90%;
+    gap: 40px 0;
   }
 `
 const ProfileComponents = styled.div`
@@ -109,8 +112,9 @@ const ProfileImg = styled.img`
   height: 500px;
   border: 8px solid black;
 
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 1024px){
     height: 450px;
+    width: 380px;
   }
 `
 const ProfileInfoContainer = styled.div`

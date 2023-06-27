@@ -26,6 +26,10 @@ const HomeDescriptionArea = styled.div`
   background-size: cover;
   text-shadow: 3px 3px 2px #000000;
 
+  @media screen and (max-width: 1024px){
+    padding: 130px 50px;
+  }
+
   @media screen and (max-width: 768px){
     padding: 90px 15px;
   }
