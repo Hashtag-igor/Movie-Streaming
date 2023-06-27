@@ -32,7 +32,7 @@ const HomeDescriptionArea = styled.div`
 
   @media screen and (max-width: 480px){
     border-bottom: 2px solid #161616;
-    padding: 70px 20px;
+    padding: 70px 0;
     width: 100%;
     color: white;
   }
@@ -42,8 +42,8 @@ const HomeDescriptionTitle = styled.h1`
   font-size: 60px;
 
   @media screen and (max-width: 480px){
-    margin: 0;
-    font-size: 46px;
+    margin: 10px 0 0 30px;
+    font-size: 38px;
   }
 `
 const HomeDescriptionSubTitle = styled.h2`
@@ -51,9 +51,10 @@ const HomeDescriptionSubTitle = styled.h2`
   font-size: 28px;
 
   @media screen and (max-width: 480px){
-    margin: 10px 0px 0px 0px;
-    font-size: 24px;
-    width: 95%;
+    margin: 10px 20px 10px 30px;
+    text-align: inherit;
+    font-size: 18px;
+    width: 90%;
   }
 `
 const HomeCardArea = styled.div`
