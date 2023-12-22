@@ -1,15 +1,17 @@
-import { api, apiKey } from '../api/Api';
+import { api, apiKey } from '../api/Api'
 
-export const fetchMovieCastAndCrew = async (movieId) => {
-  try {
-    const response = await api.get(`${movieId}/credits`, {
+export const fetchPopularMovies = async (page) => {
+  try{
+    const response = await api.get("popular", {
       params: {
         api_key: apiKey,
+        page,
       },
     });
     return response.data;
-  } catch (error) {
-    console.error('Error fetching movie cast and crew:', error);
-    return null;
   }
-};
+  catch (error) {
+    console.error("Error fetching popular movies:", error);
+    return { results: [], total_pages: 1}
+  }
+}
