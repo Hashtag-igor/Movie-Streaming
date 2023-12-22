@@ -27,12 +27,16 @@ const LogoLink = styled(NavLink)`
   text-shadow: 0.1em 0.1em #333;
   padding: 6px;
 
-  &:hover,
-  &.active {
+  &:hover {
     transition: 0.3s;
     border-bottom: 4px solid #e6aa13;
   }
+
+  &.active {
+    border-bottom: 4px solid #e6aa13;
+  }
 `;
+
 
 const NavbarSearchArea = styled.form`
   display: flex;
@@ -86,7 +90,8 @@ export default function Header() {
   const [search, setSearch] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (!search) return;
 
     navigate(`/search?q=${search}`);
@@ -105,27 +110,27 @@ export default function Header() {
       <HeaderWrapper>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '50%', marginLeft: '20px' }}>
           <HeaderLogoArea>
-            <LogoLink to="/" exact activeClassName="active">
+            <LogoLink to="/">
               HOME
             </LogoLink>
           </HeaderLogoArea>
           <div>
-            <LogoLink to="/popular" activeClassName="active">
+            <LogoLink to="/popular">
               POPULAR
             </LogoLink>
           </div>
           <div>
-            <LogoLink to="/top-rated" activeClassName="active">
+            <LogoLink to="/top-rated">
               TOP RATED
             </LogoLink>
           </div>
           <div>
-            <LogoLink to="/trending" activeClassName="active">
+            <LogoLink to="/trending">
               TRENDING
             </LogoLink>
           </div>
           <div>
-            <LogoLink to="/in-theaters" activeClassName="active">
+            <LogoLink to="/in-theaters">
               IN-THEATERS
             </LogoLink>
           </div>
