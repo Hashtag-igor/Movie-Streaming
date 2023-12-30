@@ -20,7 +20,15 @@ export const carouselSettings = {
     slidesToScroll: 5,
     responsive: [
       {
-        breakpoint: 900,
+        breakpoint: 1000,
+        settings: {
+          arrows: false,
+          slidesToShow: 4,
+          slidesToScroll: 4,
+        },
+      },
+      {
+        breakpoint: 800,
         settings: {
           arrows: false,
           slidesToShow: 2,
@@ -47,7 +55,15 @@ export const carouselSettings = {
     slidesToScroll: 3,
     responsive: [
       {
-        breakpoint: 900,
+        breakpoint: 1000,
+        settings: {
+          arrows: false,
+          slidesToShow: 4,
+          slidesToScroll: 4,
+        },
+      },
+      {
+        breakpoint: 800,
         settings: {
           arrows: false,
           slidesToShow: 2,
@@ -65,7 +81,6 @@ export const carouselSettings = {
     ],
   },
 };
-
 
 export const useCarousel = () => {
   const sliderRef = useRef(null);

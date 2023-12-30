@@ -13,11 +13,8 @@ import { fetchTopRatedMovies } from "../services/fetch/TopRatedMovies"
 
 
 const HomeContainer = styled.div`
-    
-  @media screen and (max-width: 480px){
-    width: 100%;
-    overflow-x: hidden;
-  }
+  width: 100%;    
+  overflow-x: hidden;
 `
 const HomeDescriptionArea = styled.div`
   padding: 140px;
@@ -26,21 +23,9 @@ const HomeDescriptionArea = styled.div`
   background-position: center;
   background-size: cover;
   text-shadow: 3px 3px 2px #000000;
+  width: 100%;
 
-  @media screen and (max-width: 1024px){
-    padding: 130px 50px;
-  }
-
-  @media screen and (max-width: 768px){
-    padding: 90px 15px;
-  }
-
-  @media screen and (max-width: 480px){
-    border-bottom: 2px solid #161616;
-    padding: 70px 0;
-    width: 100%;
-    color: white;
-  }
+  
 `
 const HomeDescriptionTitle = styled.h1`
   margin: 0px 0px 10px 20px;
@@ -65,14 +50,20 @@ const HomeDescriptionSubTitle = styled.h2`
 const HomeCardArea = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 0 80px 25px;
+  margin: 0 0 80px 20px;
 
-  & > :first-child{
+  & > :first-child {
     margin-top: 70px;
   }
-`
+
+  @media screen and (max-width: 800px){
+    margin: 0 0 60px 20px;
+  }
+
+`;
+
 const HomeCardTitle = styled.h2`
-  margin: 0px 0 20px 0;
+  margin: 0 0 20px 0;
   font-weight: 600;
   font-size: 36px;
 `
@@ -84,7 +75,6 @@ export const MapCardArea = styled.div`
 export const MapCardWrapper = styled.div``
 
 
-//Para resolver o erro da passagem de props abaixo
 Home.propTypes = {
   setmoviesAndTVShowsData: PropTypes.func,
 };
@@ -98,7 +88,6 @@ export default function Home() {
 
   const navigate = useNavigate()
   const { Carousel } = useCarousel();
-  console.log("CRUZEIRO ", Carousel);
 
   const goToTheProfilePage = (id) => {
     navigate(`/profile/${id}`);
@@ -138,7 +127,7 @@ export default function Home() {
       
       <HomeCardArea>
         <HomeCardTitle>TRENDING MOVIES</HomeCardTitle>
-        <Carousel slidesToShow={5}>
+        <Carousel slidesToShow={window.innerWidth < 600 ? 1 : window.innerWidth < 800 ? 2 : window.innerWidth < 1000 ? 4 : 5}>
           {TrendingMovie && TrendingMovie.filter((item, idx) => idx < 20).map((trending, key) => (
             <MapCardWrapper key={key}>
               <HomeCard goToProfilePage={goToTheProfilePage} id={trending.id} poster={trending.poster_path} title={trending.title} overview={trending.overview} releaseDate={trending.release_date} voteAverage={trending.vote_average} />
