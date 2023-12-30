@@ -9,10 +9,32 @@ const CardContainer = styled.div`
   width: 240px;
   height: 520px;
 
-  @media (max-width: 767px) {
-    margin: 0rem;
+  @media screen and (max-width: 1270px){
+    width: 220px;
+    height: 500px;
+  }
+
+  @media (max-width: 1180px) {
+    width: 200px;
+  }
+
+  @media (max-width: 1090px) {
+    width: 180px;
+  }
+
+  @media (max-width: 1000px) {
+    width: 200px;
+  }
+
+  @media (max-width: 860px) {
+    width: 185px;
+  }
+
+  @media (max-width: 800px) {
+    width: 93%;
   }
 `;
+
 
 const CardComponents = styled.div`
   width: 100%;
@@ -29,19 +51,65 @@ const CardImg = styled.img`
     transition: 300ms all ease;
     cursor: pointer;
   }
+
+  @media (max-width: 1180px) {
+    height: 360px;
+  }
+
+  @media (max-width: 1090px) {
+    height: 340px;
+  }
+
+  @media (max-width: 1000px) {
+    height: 360px;
+  }
+
+  @media (max-width: 860px) {
+    height: 345px;
+  }
+
+  @media (max-width: 800px) {
+    height: 380px;
+  }
+  
 `
 const CardVoteArea = styled.div`
   display: flex;
   font-weight: 500;
   font-size: 19px;
-  transform: translate(180px, -7px);
+  transform: translate(182px, -2px);
   position: relative;
   background-color: #000;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   padding: 1px;
-  margin-bottom: -30px;
+  
+
+  @media screen and (max-width: 1270px){
+    transform: translate(160px, -2px);
+  }
+
+  @media (max-width: 1180px) {
+    transform: translate(143px, -5px);
+  }
+
+  @media (max-width: 1090px) {
+    transform: translate(123px, -8px);
+  }
+
+  @media (max-width: 1000px) {
+    transform: translate(143px, -5px);
+  }
+
+  @media (max-width: 860px) {
+    transform: translate(128px, -5px);
+  }
+
+  @media (max-width: 800px) {
+    transform: translate(285px, -5px);
+  }
+  
 `
 const CardInfoArea = styled.div`
   display: flex;
@@ -49,6 +117,11 @@ const CardInfoArea = styled.div`
   gap: 5px;
   text-align: center;
   margin-top: -5px;
+
+  @media (max-width: 800px) {
+    width: 95%;
+    margin: 0 auto 0 auto;
+  }
 `
 const CardInfoTitle = styled.h2`
   display: flex;
