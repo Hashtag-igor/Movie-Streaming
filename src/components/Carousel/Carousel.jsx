@@ -3,18 +3,29 @@ import Slider from 'react-slick';
 
 export const carouselSettings = {
   default: {
-    dots: true,
+    dots: window.innerWidth >= 700, // Mostrar dots apenas para telas maiores ou iguais a 700px
     infinite: true,
     arrows: false,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 700,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: false, // Ocultar dots abaixo de 700px
+        },
+      },
+    ],
   },
+
   
   cast: {
     dots: true,
     infinite: true,
-    arrows: true,
+    arrows: false, // desabilitar as setas padrão
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 5,
@@ -49,7 +60,7 @@ export const carouselSettings = {
   gallery: {
     dots: true,
     infinite: true,
-    arrows: true,
+    arrows: false, // desabilitar as setas padrão
     speed: 500,
     slidesToShow: 5, 
     slidesToScroll: 3,
@@ -85,20 +96,11 @@ export const carouselSettings = {
 export const useCarousel = () => {
   const sliderRef = useRef(null);
 
-  const nextSlide = () => {
-    sliderRef.current.slickNext();
-  };
-
-  const prevSlide = () => {
-    sliderRef.current.slickPrev();
-  };
-
-  
   const Carousel = ({ children, slidesToShow }) => (
     <Slider {...carouselSettings.default} slidesToShow={slidesToShow} ref={sliderRef}>
       {children}
     </Slider>
   );
 
-  return { sliderRef, nextSlide, prevSlide, Carousel };
+  return { sliderRef, Carousel };
 };
