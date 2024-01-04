@@ -109,6 +109,76 @@ const CardVoteArea = styled.div`
   @media (max-width: 800px) {
     transform: translate(285px, -5px);
   }
+
+  
+
+  @media (max-width: 600px) {
+    transform: translate(465px, -4px);
+  }
+
+  @media (max-width: 580px) {
+    transform: translate(448px, -4px);
+  }
+  
+  @media (max-width: 560px) {
+    transform: translate(431px, -4px);
+  }
+
+  @media (max-width: 540px) {
+    transform: translate(412px, -4px);
+  }
+
+  @media (max-width: 520px) {
+    transform: translate(393px, -4px);
+  }
+
+  @media (max-width: 500px) {
+    transform: translate(374px, -4px);
+  }
+
+  @media (max-width: 480px) {
+    transform: translate(350px, -4px);
+  }
+
+  @media (max-width: 460px) {
+    transform: translate(335px, -4px);
+  }
+
+  @media (max-width: 440px) {
+    transform: translate(315px, -4px);
+  }
+
+  @media (max-width: 420px) {
+    transform: translate(300px, -4px);
+  }
+
+  @media (max-width: 400px) {
+    transform: translate(290px, -4px);
+  }
+
+  @media (max-width: 390px) {
+    transform: translate(280px, -4px);
+  }
+
+  @media (max-width: 380px) {
+    transform: translate(270px, -4px);
+  }
+
+  @media (max-width: 370px) {
+    transform: translate(255px, -4px);
+  }
+
+  @media (max-width: 355px) {
+    transform: translate(245px, -4px);
+  }
+
+  @media (max-width: 345px) {
+    transform: translate(235px, -4px);
+  }
+
+  @media (max-width: 320px) {
+    transform: translate(220px, -4px);
+  }
   
 `
 const CardInfoArea = styled.div`
