@@ -16,7 +16,7 @@ const HomeContainer = styled.div`
   width: 100%;    
   overflow-x: hidden;
 `
-const HomeDescriptionArea = styled.div`
+const HomeDescriptionContainer = styled.div`
   height: 400px;
   display: flex;
   flex-direction: column;
@@ -27,25 +27,50 @@ const HomeDescriptionArea = styled.div`
   text-shadow: 3px 3px 2px #000000;
   width: 100%;
 `
-const HomeDescriptionTitle = styled.h1`
-  margin: 0px 0px 10px 20px;
-  font-size: 60px;
+const HomeDescriptionWrapper = styled.div`
+  display: flex; 
+  flex-direction: column; 
+  width: 90%; 
+  justify-content: center; 
+  align-Items: flex-start; 
+  margin: auto; 
+  text-align: left;
 
-  @media screen and (max-width: 480px){
-    margin: 10px 0 0 30px;
-    font-size: 38px;
+  @media screen and (max-width: 400px){
+    text-align: center;
+  }
+
+  @media screen and (max-width: 374px){
+    width: 94%;
+  }
+`
+const HomeDescriptionTitle = styled.h1`
+  margin: 0px 0px 10px 0px;
+  font-size: 60px;
+  color: #e6aa13;
+  text-shadow: 0.1em 0.1em black;
+
+  @media screen and (max-width: 600px){
+    font-size: 50px;
+  }
+
+  @media screen and (max-width: 400px){
+    font-size: 42px;
+    margin: 0 auto 15px auto;
+  }
+
+  @media screen and (max-width: 350px){
+    font-size: 39px;
   }
 `
 const HomeDescriptionSubTitle = styled.h2`
-  margin: 10px 0px 0px 20px;
+  margin: 10px 0px 0px 0px;
   font-size: 28px;
 
 
   @media screen and (max-width: 480px){
-    margin: 10px 20px 10px 30px;
     text-align: inherit;
     font-size: 18px;
-    width: 90%;
   }
 `
 const HomeCardArea = styled.div`
@@ -54,7 +79,7 @@ const HomeCardArea = styled.div`
   margin: 0 0 80px 20px;
 
   & > :first-child {
-    margin-top: 70px;
+    margin-top: 90px;
   }
 
   @media screen and (max-width: 800px){
@@ -67,10 +92,11 @@ const HomeCardArea = styled.div`
 
 `;
 
-const HomeCardTitle = styled.h2`
+export const HomeCardTitle = styled.h2`
   margin: 0 0 20px 0;
-  font-weight: 600;
+  font-weight: bolder;
   font-size: 36px;
+  text-shadow: 1px 1px 2px black;
   
   @media screen and (max-width: 500px){
     margin: 0 36px 30px 0;
@@ -80,8 +106,6 @@ const HomeCardTitle = styled.h2`
 
   @media screen and (max-width: 428px){
     text-align: center;
-    color: #e6aa13;
-    text-shadow: 3px 2px 1px black;
   }
 
   @media screen and (max-width: 400px){
@@ -152,10 +176,12 @@ export default function Home() {
   
   return (
     <HomeContainer>
-      <HomeDescriptionArea>
-        <HomeDescriptionTitle>Welcome,</HomeDescriptionTitle>
-        <HomeDescriptionSubTitle>Discover a world of cinematic wonders on THTV Streaming. Explore now..</HomeDescriptionSubTitle>
-      </HomeDescriptionArea>
+      <HomeDescriptionContainer>
+        <HomeDescriptionWrapper>
+          <HomeDescriptionTitle>Welcome,</HomeDescriptionTitle>
+          <HomeDescriptionSubTitle>Discover a world of cinematic wonders on THTV Streaming. Explore now..</HomeDescriptionSubTitle>
+        </HomeDescriptionWrapper>
+      </HomeDescriptionContainer>
 
       
       <HomeCardArea>
