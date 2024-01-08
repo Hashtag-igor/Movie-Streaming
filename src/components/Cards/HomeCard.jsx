@@ -107,33 +107,66 @@ const CardVoteArea = styled.div`
   }
 
   @media (max-width: 800px) {
+    transform: translate(124px, -5px);
+  }
+  @media (max-width: 799px) {
     transform: translate(285px, -5px);
   }
 
+  @media (max-width: 765px) {
+    transform: translate(276px, -4px);
+  }
+
+  @media (max-width: 740px) {
+    transform: translate(267px, -4px);
+  }
+
+  @media (max-width: 720px) {
+    transform: translate(255px, -4px);
+  }
+
+  @media (max-width: 700px) {
+    transform: translate(548px, -4px);
+  }
   
+  @media (max-width: 680px) {
+    transform: translate(531px, -4px);
+  }
+
+  @media (max-width: 660px) {
+    transform: translate(514px, -4px);
+  }
+
+  @media (max-width: 640px) {
+    transform: translate(488px, -4px);
+  }
+
+  @media (max-width: 620px) {
+    transform: translate(478px, -4px);
+  }
 
   @media (max-width: 600px) {
-    transform: translate(465px, -4px);
+    transform: translate(460px, -4px);
   }
 
   @media (max-width: 580px) {
-    transform: translate(448px, -4px);
+    transform: translate(442px, -4px);
   }
   
   @media (max-width: 560px) {
-    transform: translate(431px, -4px);
+    transform: translate(426px, -4px);
   }
 
   @media (max-width: 540px) {
-    transform: translate(412px, -4px);
+    transform: translate(406px, -4px);
   }
 
   @media (max-width: 520px) {
-    transform: translate(393px, -4px);
+    transform: translate(387px, -4px);
   }
 
   @media (max-width: 500px) {
-    transform: translate(374px, -4px);
+    transform: translate(369px, -4px);
   }
 
   @media (max-width: 480px) {
@@ -141,43 +174,51 @@ const CardVoteArea = styled.div`
   }
 
   @media (max-width: 460px) {
-    transform: translate(335px, -4px);
+    transform: translate(332px, -4px);
   }
 
   @media (max-width: 440px) {
-    transform: translate(315px, -4px);
+    transform: translate(310px, -4px);
   }
 
   @media (max-width: 420px) {
     transform: translate(300px, -4px);
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 410px) {
     transform: translate(290px, -4px);
   }
 
-  @media (max-width: 390px) {
+  @media (max-width: 400px) {
     transform: translate(280px, -4px);
   }
 
-  @media (max-width: 380px) {
+  @media (max-width: 390px) {
     transform: translate(270px, -4px);
   }
 
+  @media (max-width: 380px) {
+    transform: translate(260px, -4px);
+  }
+
   @media (max-width: 370px) {
-    transform: translate(255px, -4px);
+    transform: translate(250px, -4px);
   }
 
-  @media (max-width: 355px) {
-    transform: translate(245px, -4px);
+  @media (max-width: 360px) {
+    transform: translate(240px, -4px);
   }
 
-  @media (max-width: 345px) {
-    transform: translate(235px, -4px);
+  @media (max-width: 350px) {
+    transform: translate(234px, -4px);
   }
 
-  @media (max-width: 320px) {
-    transform: translate(220px, -4px);
+  @media (max-width: 340px) {
+    transform: translate(224px, -4px);
+  }
+
+  @media (max-width: 330px) {
+    transform: translate(214px, -4px);
   }
   
 `
