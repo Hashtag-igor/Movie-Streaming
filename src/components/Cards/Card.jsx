@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { imgApi } from "../../services/api/Api"
 import { GreenCard, RedCard, WhiteCard, YellowCard, Percent } from "../../components/Cards/HomeCard"
 
-
 const CardContainer = styled.div`
   width: 240px;
   height: 570px;
@@ -29,7 +28,7 @@ const CardVoteArea = styled.div`
   display: flex;
   font-weight: 500;
   font-size: 19px;
-  transform: translate(10px, -290px);
+  transform: translate(180px, -370px);
   position: relative;
   background-color: #000;
   width: 50px;
@@ -73,10 +72,8 @@ export default function Card({ id, poster, title, releaseDate, voteAverage, goTo
     const months = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
     const [year, month, day] = dateString.split('-').map(Number);
   
-    // Obtém a abreviação do mês
     const abbreviatedMonth = months[month - 1];
   
-    // Formata a data no estilo desejado
     const formattedDate = `${abbreviatedMonth} ${day}, ${year}`;
   
     return formattedDate;
