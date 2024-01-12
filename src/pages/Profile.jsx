@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { fetchMovieCastAndCrew } from "../services/fetch/MovieCast"
 import { fetchGallery } from '../services/fetch/Images';
 import { fetchMovieDetails } from '../services/fetch/Movies';
@@ -33,7 +33,7 @@ const Profile = () => {
               <h3 style={{fontSize: "30px"}}>CAST</h3>
             </div>
             <div>
-              <span>See full cast</span>
+              <Link to={`/movie/${id}/cast`}>See full cast</Link>
             </div>
           </div>
           <div style={{display: 'flex',justifyContent: 'space-evenly', alignItems: 'center', flexWrap: 'wrap', margin: '30px 0', width: '100%', gap: "60px 0"}}>

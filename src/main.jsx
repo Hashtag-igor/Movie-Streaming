@@ -11,6 +11,7 @@ import Trending from './pages/Trending.jsx'
 import InTheaters from './pages/InTheaters.jsx'
 import TopRated from './pages/TopRated.jsx'
 import Popular from "./pages/Popular.jsx"
+import CastPage from "./pages/CastPage.jsx"
 
 const routes = [
   {
@@ -44,6 +45,10 @@ const routes = [
       {
         path: "/popular",
         element: <Popular />
+      },
+      {
+        path: "/movie/:id/cast",
+        element: <CastPage />
       }
     ]
   }
