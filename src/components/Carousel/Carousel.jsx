@@ -8,7 +8,7 @@ export const carouselSettings = {
     arrows: false,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     responsive: [
       {
         breakpoint: 700,

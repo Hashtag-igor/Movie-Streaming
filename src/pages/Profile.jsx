@@ -4,8 +4,8 @@ import { fetchMovieCastAndCrew } from "../services/fetch/MovieCast"
 import { fetchGallery } from '../services/fetch/Images';
 import { fetchMovieDetails } from '../services/fetch/Movies';
 import CastCard from '../components/Cards/CastCard';
-import GalleryCard from '../components/Cards/GalleryCard';
 import InfoCard from '../components/Cards/InfoCard';
+import { useCarousel } from '../components/Carousel/Carousel';
 
 const Profile = () => {
   const { id } = useParams();
@@ -13,38 +13,52 @@ const Profile = () => {
   const [ castAndCrew, setCastAndCrew ] = useState([])
   const [ gallery, setGallery ] = useState([])
 
+  const { Carousel } = useCarousel();
+
   useEffect(() => {
     fetchMovieDetails(id).then((details) => setMovieDetails(details));
     fetchMovieCastAndCrew(id).then((castCrew) => setCastAndCrew(castCrew));
-    fetchGallery(id).then((images) => setGallery(images));
+    fetchGallery(id)
+      .then((images) => {
+        if (images && images.backdrops && Array.isArray(images.backdrops)) {
+          setGallery(images.backdrops);
+        } else {
+          console.error("Invalid gallery data:", images);
+          setGallery([]);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching gallery:", error);
+        setGallery([]);
+      });
   }, [id]);
-
 
   return (
     <main >
       <div >
-        <div>
+      <div>
           {movieDetails === null && <p>Loading...</p>}
           {movieDetails !== null && <InfoCard movie={movieDetails} />}
         </div>
-        <div>
-          <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", width: "95%", margin: "60px auto 0 auto"}}>
+        <div style={{margin: "0 0 110px 20px"}}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "97%", marginTop: "60px", marginBottom: "15px" }}>
             <div>
-              <h3 style={{fontSize: "30px"}}>CAST</h3>
+              <h3 style={{ fontSize: "30px" }}>CAST</h3>
             </div>
             <div>
               <Link to={`/movie/${id}/cast`}>See full cast</Link>
             </div>
           </div>
-          <div style={{display: 'flex',justifyContent: 'space-evenly', alignItems: 'center', flexWrap: 'wrap', margin: '30px 0', width: '100%', gap: "60px 0"}}>
-            {castAndCrew.cast && castAndCrew.cast.map((cast) => (
-              <CastCard key={cast.id} name={cast.name} character={cast.character} profile={cast.profile_path}/>
-            ))}
+          <div>
+            <Carousel slidesToShow={window.innerWidth < 600 ? 1 : window.innerWidth < 800 ? 2 : window.innerWidth < 1000 ? 4 : 5} >
+              {castAndCrew.cast && castAndCrew.cast.filter((item, idx) => idx < 12).map((cast) => (
+                <CastCard key={cast.id} name={cast.name} character={cast.character} profile={cast.profile_path} />
+              ))}
+            </Carousel>
           </div>
         </div>
-        {gallery.posters && gallery.posters.map((image) => (
-          <GalleryCard key={image.id} image={image}/>
-        ))}
+
+        
     </div>
 
 
