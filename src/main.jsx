@@ -12,6 +12,7 @@ import InTheaters from './pages/InTheaters.jsx'
 import TopRated from './pages/TopRated.jsx'
 import Popular from "./pages/Popular.jsx"
 import CastPage from "./pages/CastPage.jsx"
+import GalleryPage from './pages/GalleryPage.jsx'
 
 const routes = [
   {
@@ -49,6 +50,10 @@ const routes = [
       {
         path: "/movie/:id/cast",
         element: <CastPage />
+      },
+      {
+        path: "/movie/:id/gallery",
+        element: <GalleryPage />
       }
     ]
   }
