@@ -4,8 +4,10 @@ import { fetchMovieCastAndCrew } from "../services/fetch/MovieCast"
 import { fetchGallery } from '../services/fetch/Images';
 import { fetchMovieDetails } from '../services/fetch/Movies';
 import CastCard from '../components/Cards/CastCard';
+import GalleryCard from '../components/Cards/GalleryCard';
 import InfoCard from '../components/Cards/InfoCard';
 import { useCarousel } from '../components/Carousel/Carousel';
+import { useGalleryCarousel } from "../components/Carousel/GalleryCarousel"
 
 const Profile = () => {
   const { id } = useParams();
@@ -14,6 +16,7 @@ const Profile = () => {
   const [ gallery, setGallery ] = useState([])
 
   const { Carousel } = useCarousel();
+  const { sliderRef, GalleryCarousel } = useGalleryCarousel();
 
   useEffect(() => {
     fetchMovieDetails(id).then((details) => setMovieDetails(details));
@@ -58,7 +61,23 @@ const Profile = () => {
           </div>
         </div>
 
-        
+        <div style={{margin: "0 0 110px 20px"}}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "97%", marginTop: "60px", marginBottom: "15px"}}>
+            <div>
+              <h3 style={{fontSize: "30px"}}>GALLERY</h3>
+            </div>
+            <div>
+              <Link to={`/movie/${id}/gallery`}>See full gallery</Link>
+            </div>
+          </div>
+          <div>
+            <GalleryCarousel>
+              {Array.isArray(gallery) && gallery.filter((item, idx) => idx < 12).map((image) => (
+                <GalleryCard key={image.id} image={image}/>
+            ))}
+            </GalleryCarousel>
+          </div>
+        </div>
     </div>
 
 

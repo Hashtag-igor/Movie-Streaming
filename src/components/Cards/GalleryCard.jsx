@@ -3,8 +3,10 @@ import PropTypes from "prop-types";
 
 export default function GalleryCard({image}) {
   return (
-    <div>
-        <img style={{width: "30px", height: "30px"}} src={imgApi.defaults.baseURL + image.file_path} alt="" />
+    <div style={{marginBottom: "50px"}}>
+      <div style={{display: "flex", flexWrap: "wrap"}}>
+        <img style={{ width: "400px", height: "250px", borderRadius: "12px" }} src={imgApi.defaults.baseURL + image.file_path} alt="" />
+      </div>
     </div>
   )
 }
