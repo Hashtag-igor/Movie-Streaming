@@ -36,11 +36,7 @@ const HomeDescriptionWrapper = styled.div`
   margin: auto; 
   text-align: left;
 
-  @media screen and (max-width: 400px){
-    text-align: center;
-  }
-
-  @media screen and (max-width: 374px){
+  @media screen and (max-width: 500px){
     width: 94%;
   }
 `
@@ -64,19 +60,77 @@ const HomeDescriptionTitle = styled.h1`
   }
 `
 const HomeDescriptionSubTitle = styled.h2`
-  margin: 10px 0px 0px 0px;
-  font-size: 28px;
+  color: white;
+  margin-top: 2px;
+  overflow: hidden;
+  display: inline-block;
+  border-right: .15em solid orange;
+  position: relative;
+  animation: typing-erasing 35s steps(30, end) infinite;
+  height: 1.3em;
 
+    @keyframes typing-erasing {
+      0%, 100% { width: 0; }
+      25%, 75% { width: 75%; }
+      50% { width: 75%; }
+    }
 
-  @media screen and (max-width: 480px){
-    text-align: inherit;
-    font-size: 18px;
-  }
+    @media screen and (max-width: 1280px){ 
+      @keyframes typing-erasing {
+        0%, 100% { width: 0; }
+        25%, 75% { width: 80%; }
+        50% { width: 80%; }
+      }
+    }
+
+    @media screen and (max-width: 1200px){ 
+      @keyframes typing-erasing {
+        0%, 100% { width: 0; }
+        25%, 75% { width: 85%; }
+        50% { width: 85%; }
+      }
+    }
+
+    @media screen and (max-width: 1130px){ 
+      @keyframes typing-erasing {
+        0%, 100% { width: 0; }
+        25%, 75% { width: 90%; }
+        50% { width: 90%; }
+      }
+    }
+
+    @media screen and (max-width: 1060px){ 
+      @keyframes typing-erasing {
+        0%, 100% { width: 0; }
+        25%, 75% { width: 95%; }
+        50% { width: 95%; }
+      }
+    }
+
+    @media screen and (max-width: 1005px){ 
+      @keyframes typing-erasing {
+        0%, 100% { width: 0; }
+        25%, 75% { width: 100%; }
+        50% { width: 100%; }
+      }
+    }
+
+    @media screen and (max-width: 955px){ 
+      height: 2.5em;
+    }
+
+    @media screen and (max-width: 485px){ 
+      height: 3.7em;
+    }
+
+    @media screen and (max-width: 360px){ 
+      height: 4.7em;
+    }
 `
 const HomeCardArea = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 0 80px 20px;
+  margin: 0 0 30px 20px;
 
   & > :first-child {
     margin-top: 90px;
@@ -93,7 +147,7 @@ const HomeCardArea = styled.div`
 `;
 
 export const HomeCardTitle = styled.h2`
-  margin: 0 0 20px 0;
+  margin: 0 0 18px 0;
   font-weight: bolder;
   font-size: 36px;
   text-shadow: 1px 1px 2px black;
