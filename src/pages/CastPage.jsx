@@ -1,13 +1,32 @@
 import { useEffect, useState } from 'react';
 import { fetchMovieCastAndCrew } from "../services/fetch/MovieCast";
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import CastCard from '../components/Cards/CastCard';
 import { HomeCardTitle } from "./Home"
+import styled from 'styled-components';
+import { FaArrowCircleLeft } from "react-icons/fa";
+
+
+export const ReturnArrow = styled(FaArrowCircleLeft)`
+  width: 25px;
+  height: 25px;
+
+  &:hover {
+    cursor: pointer;
+  }
+`
+
 
 export default function CastPage() {
   const [MovieCast, setMovieCast] = useState([]);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
+
+  const navigate = useNavigate()
+
+  const handleReturnClick = () => {
+    navigate(-1); // Navega de volta para a página anterior
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -31,10 +50,11 @@ export default function CastPage() {
 
   return (
     <main style={{marginBottom: "50px"}}>
-      <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", width: "95%", margin: "40px auto -25px auto"}}>
-        <div>
-          <HomeCardTitle>Cast and Crew</HomeCardTitle>
-        </div>
+      <div style={{margin: "5px auto 0 auto", width: "99%"}}>
+        <span style={{display: "flex", alignItems: "center", gap: "0 8px"}}><ReturnArrow onClick={handleReturnClick}/><span> return</span></span>
+      </div>
+      <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", width: "95%", margin: "30px auto -25px auto"}}>
+        <HomeCardTitle>Cast and Crew</HomeCardTitle>
       </div>
       <div>
         {loading ? (
