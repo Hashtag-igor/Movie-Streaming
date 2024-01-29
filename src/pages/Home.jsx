@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import styled from "styled-components"
 import PropTypes from 'prop-types';
 import HomeCard from "../components/Cards/HomeCard"
@@ -140,8 +140,28 @@ const HomeCardArea = styled.div`
     margin: 0 0 60px 20px;
   }
 
+  @media screen and (max-width: 700px){
+    margin: 0 0 30px 38px;
+  }
+
+  @media screen and (max-width: 550px){
+    margin: 0 0 30px 30px;
+  }
+
   @media screen and (max-width: 430px){
-    margin: 0 0 10px 25px;
+    margin: 0 0 0 11px;
+
+    & > :first-child {
+      margin-top: 70px;
+    }
+  }
+
+  @media screen and (max-width: 390px){
+    margin: 0 0 0 10px;
+  }
+
+  @media screen and (max-width: 370px){
+    margin: 0 0 0 9px;
   }
 
 `;
@@ -153,13 +173,15 @@ export const HomeCardTitle = styled.h2`
   text-shadow: 1px 1px 2px black;
   
   @media screen and (max-width: 500px){
-    margin: 0 36px 30px 0;
+    margin: 0 36px 18px 0;
     text-align: center;
-    font-size: 33px;
+    font-size: 38px;
   }
 
-  @media screen and (max-width: 428px){
-    text-align: center;
+  @media screen and (max-width: 430px){
+    font-size: 36px;
+    margin: 10px 0 10px 0;
+    padding-right: 15px;
   }
 
   @media screen and (max-width: 400px){
@@ -182,6 +204,33 @@ export const MapCardArea = styled.div`
 `
 export const MapCardWrapper = styled.div``
 
+export const ScrollMessage = styled.span`
+  padding-left: 25px;
+  padding-bottom: 2px;
+  color: #e6aa13;
+  text-shadow: 1px 1px 1px #000000;
+  letter-spacing: 0.5px;
+
+  @media screen and (max-width: 700px){
+    padding-left: 0;
+    padding-right: 60px;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 500px){
+    margin: 0 0 0 0;
+    padding-right: 30px;
+  }
+
+  @media screen and (max-width: 430px){
+    padding-right: 15px;
+  }
+
+  @media screen and (max-width: 342px){
+    font-size: 15px ;
+  }
+`
+
 
 Home.propTypes = {
   setmoviesAndTVShowsData: PropTypes.func,
@@ -193,6 +242,8 @@ export default function Home() {
   const [TheatersMovie, setTheatersMovie] = useState([])
   const [TopRatedMovie, setTopRatedMovie] = useState([])
   const [PopularMovie, setPopularMovie] = useState([])
+  const [isMobile, setIsMobile] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const navigate = useNavigate()
   const { Carousel } = useCarousel();
@@ -202,6 +253,24 @@ export default function Home() {
     navigate(`/profile/${id}`);
   };
 
+  useLayoutEffect(() => {
+    const checkMobile = () => {
+      const isMobileDevice = window.innerWidth < 769;
+      setIsMobile(isMobileDevice);
+    };
+
+    checkMobile();
+
+    const handleResize = () => {
+      checkMobile();
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     fetchTopRatedMovies().then((TopRatedMovie) => {
@@ -240,6 +309,15 @@ export default function Home() {
       
       <HomeCardArea>
         <HomeCardTitle>TRENDING MOVIES</HomeCardTitle>
+        {windowWidth <= 699 ? (
+          // Renderiza os links menores
+          <ScrollMessage>
+            (scroll the card to change the movie)
+          </ScrollMessage>
+        ) : (
+          // Renderiza os links maiores
+          <></>
+        )}
         <Carousel slidesToShow={window.innerWidth < 600 ? 1 : window.innerWidth < 800 ? 2 : window.innerWidth < 1000 ? 4 : 5} >
           {TrendingMovie && TrendingMovie.filter((item, idx) => idx < 20).map((trending, key) => (
             <MapCardWrapper key={key}>
@@ -251,6 +329,15 @@ export default function Home() {
 
       <HomeCardArea>
         <HomeCardTitle>THEATERS MOVIES</HomeCardTitle>
+        {windowWidth <= 699 ? (
+          // Renderiza os links menores
+          <ScrollMessage>
+            (scroll the card to change the movie)
+          </ScrollMessage>
+        ) : (
+          // Renderiza os links maiores
+          <></>
+        )}
         <Carousel slidesToShow={window.innerWidth < 600 ? 1 : window.innerWidth < 800 ? 2 : window.innerWidth < 1000 ? 4 : 5}>
           {TheatersMovie && TheatersMovie.filter((item, idx) => idx < 20).map((theater, key) => (
             <MapCardWrapper key={key}>
@@ -262,6 +349,15 @@ export default function Home() {
     
       <HomeCardArea>
         <HomeCardTitle>TOP RATED MOVIES</HomeCardTitle>
+        {windowWidth <= 699 ? (
+          // Renderiza os links menores
+          <ScrollMessage>
+            (scroll the card to change the movie)
+          </ScrollMessage>
+        ) : (
+          // Renderiza os links maiores
+          <></>
+        )}
         <Carousel slidesToShow={window.innerWidth < 600 ? 1 : window.innerWidth < 800 ? 2 : window.innerWidth < 1000 ? 4 : 5}>
           {TopRatedMovie && TopRatedMovie.filter((item, idx) => idx < 20).map((top, key) => (
             <MapCardWrapper key={key}>
@@ -273,6 +369,15 @@ export default function Home() {
 
       <HomeCardArea>
         <HomeCardTitle>POPULAR MOVIES</HomeCardTitle>
+        {windowWidth <= 699 ? (
+          // Renderiza os links menores
+          <ScrollMessage>
+            (scroll the card to change the movie)
+          </ScrollMessage>
+        ) : (
+          // Renderiza os links maiores
+          <></>
+        )}
           <Carousel slidesToShow={window.innerWidth < 600 ? 1 : window.innerWidth < 800 ? 2 : window.innerWidth < 1000 ? 4 : 5}>
             {PopularMovie && PopularMovie.filter((item, idx) => idx < 20).map((popular, key) => (
               <MapCardWrapper key={key}>
