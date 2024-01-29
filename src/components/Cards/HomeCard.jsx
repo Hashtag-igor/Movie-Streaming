@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { imgApi } from "../../services/api/Api"
 
 
-const CardContainer = styled.div`
+export const CardContainer = styled.div`
   display: flex;
   justify-content: space-between;
   width: 240px;
@@ -11,32 +11,64 @@ const CardContainer = styled.div`
 
   @media screen and (max-width: 1270px){
     width: 220px;
-    height: 500px;
   }
 
   @media (max-width: 1180px) {
     width: 200px;
+    height: 530px;
   }
 
   @media (max-width: 1090px) {
     width: 180px;
+    height: 510px;
   }
 
   @media (max-width: 1000px) {
     width: 200px;
   }
 
+  @media (max-width: 999px) {
+    height: 530px;
+  }
+
   @media (max-width: 860px) {
     width: 185px;
+    height: 525px;
   }
 
   @media (max-width: 800px) {
     width: 93%;
+    height: 540px;
+  }
+
+  @media (max-width: 799px) {
+    height: 500px;
+  }
+
+  @media (max-width: 700px) {
+    height: 620px;
+  }
+
+  @media (max-width: 699px) {
+    height: 570px;
+  }
+
+  @media (max-width: 430px) {
+    width: 97%;
+  }
+
+  @media (max-width: 390px) {
+    width: 97%;
+    height: 570px;
+  }
+
+  @media (max-width: 320px) {
+    height: 520px;
   }
 `;
 
 
-const CardComponents = styled.div`
+export const CardComponents = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -70,6 +102,23 @@ const CardImg = styled.img`
 
   @media (max-width: 800px) {
     height: 380px;
+  }
+
+  @media (max-width: 700px) {
+    height: 500px;
+  }
+
+  @media (max-width: 430px) {
+    height: 460px;
+
+    &:hover{
+    border: none;
+    transition: none;
+   }
+  }
+
+  @media (max-width: 350px) {
+    height: 400px;
   }
   
 `
@@ -126,101 +175,116 @@ const CardVoteArea = styled.div`
   }
 
   @media (max-width: 700px) {
-    transform: translate(548px, -4px);
+    transform: translate(248px, -4px);
+  }
+
+  @media (max-width: 699px) {
+    transform: translate(537px, -4px);
   }
   
   @media (max-width: 680px) {
-    transform: translate(531px, -4px);
+    transform: translate(518px, -4px);
   }
 
   @media (max-width: 660px) {
-    transform: translate(514px, -4px);
+    transform: translate(500px, -4px);
   }
 
   @media (max-width: 640px) {
-    transform: translate(488px, -4px);
+    transform: translate(480px, -4px);
   }
 
   @media (max-width: 620px) {
-    transform: translate(478px, -4px);
+    transform: translate(465px, -4px);
   }
 
   @media (max-width: 600px) {
-    transform: translate(460px, -4px);
+    transform: translate(445px, -4px);
   }
 
   @media (max-width: 580px) {
-    transform: translate(442px, -4px);
+    transform: translate(428px, -4px);
   }
   
   @media (max-width: 560px) {
-    transform: translate(426px, -4px);
+    transform: translate(415px, -4px);
   }
 
   @media (max-width: 540px) {
-    transform: translate(406px, -4px);
+    transform: translate(400px, -4px);
   }
 
   @media (max-width: 520px) {
-    transform: translate(387px, -4px);
+    transform: translate(380px, -4px);
   }
 
   @media (max-width: 500px) {
-    transform: translate(369px, -4px);
+    transform: translate(360px, -4px);
   }
 
   @media (max-width: 480px) {
-    transform: translate(350px, -4px);
+    transform: translate(338px, -4px);
   }
 
   @media (max-width: 460px) {
-    transform: translate(332px, -4px);
+    transform: translate(323px, -4px);
   }
 
   @media (max-width: 440px) {
-    transform: translate(310px, -4px);
+    transform: translate(312px, -4px);
   }
 
   @media (max-width: 420px) {
-    transform: translate(300px, -4px);
+    transform: translate(330px, -4px);
   }
 
   @media (max-width: 410px) {
-    transform: translate(290px, -4px);
+    transform: translate(320px, -4px);
   }
 
   @media (max-width: 400px) {
-    transform: translate(280px, -4px);
+    transform: translate(310px, -4px);
   }
 
   @media (max-width: 390px) {
-    transform: translate(270px, -4px);
+    transform: translate(300px, -4px);
   }
 
   @media (max-width: 380px) {
-    transform: translate(260px, -4px);
+    transform: translate(290px, -4px);
   }
 
   @media (max-width: 370px) {
-    transform: translate(250px, -4px);
+    transform: translate(280px, -4px);
   }
 
   @media (max-width: 360px) {
-    transform: translate(240px, -4px);
+    transform: translate(270px, -4px);
   }
 
   @media (max-width: 350px) {
-    transform: translate(234px, -4px);
+    transform: translate(258px, -4px);
   }
 
   @media (max-width: 340px) {
-    transform: translate(224px, -4px);
+    transform: translate(250px, -4px);
   }
 
   @media (max-width: 330px) {
-    transform: translate(214px, -4px);
+    transform: translate(240px, -4px);
+  }
+
+  @media (max-width: 320px) {
+    transform: translate(235px, -4px);
   }
   
+  @media (max-width: 315px) {
+    transform: translate(228px, -4px);
+  }
+
+  @media (max-width: 305px) {
+    transform: translate(224px, -4px);
+  }
 `
 const CardInfoArea = styled.div`
   display: flex;
