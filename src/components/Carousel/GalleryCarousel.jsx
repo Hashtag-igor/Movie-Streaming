@@ -6,8 +6,8 @@ export const galleryCarouselSettings = {
   infinite: true,
   arrows: false,
   speed: 500,
-  slidesToShow: 3, // Altere conforme necessário para a galeria do perfil
-  slidesToScroll: 3,
+  slidesToShow: 2, // Altere conforme necessário para a galeria do perfil
+  slidesToScroll: 2,
   responsive: [
     {
       breakpoint: 1000,
