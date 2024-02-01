@@ -1,94 +1,29 @@
-import { useState } from 'react';
+import { useState, useLayoutEffect, useEffect } from 'react';
 import { SlMagnifier } from 'react-icons/sl';
-import { NavLink, useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-
-const HeaderContainer = styled.div`
-  background-color: black;
-  padding: 10px 0;
-  border-bottom: 3px solid #0e0e0e;
-
-  @media screen and (max-width: 480px) {
-    padding: 20px 0;
-  }
-`;
-
-const HeaderWrapper = styled.nav`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-`;
-
-const HeaderLogoArea = styled.div``;
-
-const LogoLink = styled(NavLink)`
-  color: #e6aa13;
-  text-shadow: 0.1em 0.1em #333;
-  padding: 6px;
-
-  &:hover {
-    transition: 0.3s;
-    border-bottom: 4px solid #e6aa13;
-  }
-
-  &.active {
-    border-bottom: 4px solid #e6aa13;
-  }
-`;
-
-
-const NavbarSearchArea = styled.form`
-  display: flex;
-  align-items: center;
-  margin-right: 20px;
-
-  @media screen and (max-width: 480px) {
-    width: 100%;
-  }
-`;
-
-const NavbarSearchAreaInput = styled.input`
-  padding: 8px 12px;
-  border-radius: 5px;
-  margin-right: 5px;
-  letter-spacing: 1px;
-  font-size: 14px;
-  border: none;
-
-  @media screen and (max-width: 768px) {
-    font-size: 18px;
-  }
-
-  @media screen and (max-width: 480px) {
-    font-size: 16px;
-  }
-`;
-
-const NavbarSearchAreaButton = styled.button`
-  padding: 8px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  border: none;
-  background-color: white;
-
-  &:hover {
-    background-color: #ffb700;
-    transition: 0.5s;
-  }
-
-  @media screen and (max-width: 768px) {
-    font-size: 18px;
-  }
-
-  @media screen and (max-width: 480px) {
-    font-size: 16px;
-  }
-`;
+import { useNavigate } from 'react-router-dom';
+import { MenuIconMobile, MenuToggleMobile, PaginaConteudoMobileContainer, PaginaConteudoMobileTitle,
+         PaginaConteudoMobileWrapper, PaginaOverlayMobile, HeaderContainer, HeaderContainerFixed, HeaderLinksMobilePage, 
+         HeaderNavbar, HeaderNavbarFixed, PaginaConteudoMobileSubTitle, HeaderHomeArea, HeaderHomeAreaFixed, HeaderNavbarContainer, 
+         HeaderNavbarContainerFixed, HeaderRoutesArea, HeaderRoutesAreaFixed, HomeLink, LogoLink, NavbarSearchArea, NavbarSearchAreaButton, 
+         NavbarSearchAreaInput, NavbarSearchAreaInputMobile } from "../../styles/HeaderStyles"
 
 export default function Header() {
-  const [search, setSearch] = useState('');
-  const navigate = useNavigate();
+  const [isVisible, setIsVisible] = useState(true);
+  const [aberto, setAberto] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [headerState, setHeaderState] = useState('normal');
+  const [search, setSearch] = useState("")
+
+  const navigate = useNavigate()
+
+  const toggleMenu = () => {
+    setAberto(!aberto);
+  };
+
+  const fecharMenu = () => {
+    setAberto(false);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -105,43 +40,213 @@ export default function Header() {
     }
   };
 
+  const handleKeyDownMobile = (e) => {
+    if (e.key === 'Enter') {
+      navigate(`/search?q=${search}`);
+      setSearch('');
+      fecharMenu(); // Fechar o menu ao pressionar Enter
+    }
+  };
+
+  const handleLinkClick = (route) => {
+    if (isMobile) {
+      setAberto(false); 
+      navigate(route); 
+    }
+  };
+
+  const handleSearchSubmit = () => {
+    if (isMobile) {
+      setAberto(false); // Feche o menu ao clicar em "Search"
+    }
+
+    if (search.trim() !== "") {
+      navigate(`/search?q=${search}`);
+      setSearch('');
+    }
+  };
+
+  useLayoutEffect(() => {
+    const checkMobile = () => {
+      const isMobileDevice = window.innerWidth < 769;
+      setIsMobile(isMobileDevice);
+    };
+
+    checkMobile();
+
+    const handleResize = () => {
+      checkMobile();
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+
+  useEffect(() => {
+    let isScrolling = false;
+
+    // Função para atualizar a largura da janela quando a janela for redimensionada
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    // Adicionar um ouvinte de evento de redimensionamento da janela
+    window.addEventListener('resize', handleResize);
+
+    // Função para lidar com o scroll
+    const handleScroll = () => {
+      if (!isScrolling) {
+        isScrolling = true;
+
+        const scrollY = window.scrollY;
+        const headerActivationHeight = 340;
+        const scrollThreshold = 50;
+        const isHeaderFixed = scrollY > headerActivationHeight;
+
+        if (isHeaderFixed && headerState !== 'fixed') {
+          setHeaderState('fixed');
+        } else if (!isHeaderFixed && headerState !== 'normal') {
+          if (scrollY <= scrollThreshold) {
+            setHeaderState('normal');
+          }
+        }
+
+        setTimeout(() => {
+          isScrolling = false;
+        }, 50);
+      }
+    };
+
+    // Adicionar um ouvinte de evento de rolagem da janela
+    window.addEventListener('scroll', handleScroll);
+
+    // Remover o ouvinte de evento ao desmontar o componente
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [headerState]);
+
   return (
-    <HeaderContainer>
-      <HeaderWrapper>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '50%', marginLeft: '20px' }}>
-          <HeaderLogoArea>
-            <LogoLink to="/">
-              HOME
-            </LogoLink>
-          </HeaderLogoArea>
-          <div>
-            <LogoLink to="/popular">
-              POPULAR
-            </LogoLink>
-          </div>
-          <div>
-            <LogoLink to="/top-rated">
-              TOP RATED
-            </LogoLink>
-          </div>
-          <div>
-            <LogoLink to="/trending">
-              TRENDING
-            </LogoLink>
-          </div>
-          <div>
-            <LogoLink to="/in-theaters">
-              IN-THEATERS
-            </LogoLink>
-          </div>
-        </div>
-        <NavbarSearchArea>
-          <NavbarSearchAreaInput type="text" placeholder="Search..." value={search} onChange={(e) => setSearch(e.target.value)} onKeyDown={handleKeyDown} />
-          <NavbarSearchAreaButton onClick={handleSubmit}>
-            <SlMagnifier />
-          </NavbarSearchAreaButton>
-        </NavbarSearchArea>
-      </HeaderWrapper>
+    <>
+    {headerState === 'fixed' ? (
+      <HeaderContainerFixed>
+        <HeaderNavbarFixed>
+            <HeaderNavbarContainerFixed>
+              <HeaderHomeAreaFixed>
+                <LogoLink to="/">
+                  HOME
+                </LogoLink>
+              </HeaderHomeAreaFixed>
+              <HeaderRoutesAreaFixed>
+                <LogoLink to="/popular">
+                  POPULAR
+                </LogoLink>
+              </HeaderRoutesAreaFixed>
+              <HeaderRoutesAreaFixed>
+                <LogoLink to="/top-rated">
+                  TOP RATED
+                </LogoLink>
+              </HeaderRoutesAreaFixed>
+              <HeaderRoutesAreaFixed>
+                <LogoLink to="/trending">
+                  TRENDING
+                </LogoLink>
+              </HeaderRoutesAreaFixed>
+              <HeaderRoutesAreaFixed>
+                {windowWidth <= 500 ? (
+                    // Renderiza os links menores
+                    <LogoLink to="/in-theaters">
+                      THEATER
+                    </LogoLink>
+                  ) : (
+                    // Renderiza os links maiores
+                    <LogoLink to="/in-theaters">
+                      IN-THEATERS
+                    </LogoLink>
+                )}
+              </HeaderRoutesAreaFixed>
+          </HeaderNavbarContainerFixed>
+          </HeaderNavbarFixed>
+        </HeaderContainerFixed>
+      ) : (
+        <HeaderContainer id="home">
+          <HeaderNavbar>
+            <HeaderNavbarContainer>
+              <HeaderHomeArea>
+                <HomeLink to="/">
+                  HOME
+                </HomeLink>
+              </HeaderHomeArea>
+              <HeaderRoutesArea>
+                <LogoLink to="/popular">
+                  POPULAR
+                </LogoLink>
+              </HeaderRoutesArea>
+              <HeaderRoutesArea>
+                <LogoLink to="/top-rated">
+                  TOP RATED
+                </LogoLink>
+              </HeaderRoutesArea>
+              <HeaderRoutesArea>
+                <LogoLink to="/trending">
+                  TRENDING
+                </LogoLink>
+              </HeaderRoutesArea>
+              <HeaderRoutesArea>
+                <LogoLink to="/in-theaters">
+                  IN-THEATERS
+                </LogoLink>
+              </HeaderRoutesArea>
+            </HeaderNavbarContainer>
+            <NavbarSearchArea>
+              <NavbarSearchAreaInput type="text" placeholder="Search..." value={search} onChange={(e) => setSearch(e.target.value)} onKeyDown={handleKeyDown} />
+              <NavbarSearchAreaButton onClick={handleSubmit}>
+                <SlMagnifier />
+              </NavbarSearchAreaButton>
+            </NavbarSearchArea>
+          </HeaderNavbar>
+
+            {isMobile && isVisible ? (
+              <PaginaOverlayMobile className={`pagina-overlay ${aberto ? 'pagina-overlay-aberto' : ''}`}>
+                <PaginaConteudoMobileContainer className="pagina-conteudo">
+                  <div style={{display: "flex", flexDirection: "column", marginBottom: "10px"}}>
+                    <PaginaConteudoMobileTitle to="/" onClick={() => handleLinkClick("/")}>HOME</PaginaConteudoMobileTitle>
+                    <div style={{display: "flex", alignItems: "center"}}>
+                      <NavbarSearchAreaInputMobile type="text" placeholder="Search..." value={search} onChange={(e) => setSearch(e.target.value)} onKeyDown={handleKeyDownMobile}/>
+                      <NavbarSearchAreaButton onClick={handleSearchSubmit}>
+                        <SlMagnifier />
+                      </NavbarSearchAreaButton>
+                    </div>
+                  </div>
+                  <PaginaConteudoMobileWrapper>
+                    <PaginaConteudoMobileSubTitle>Genres</PaginaConteudoMobileSubTitle>
+                    <HeaderLinksMobilePage to="/popular" onClick={() => handleLinkClick("/popular")}>Popular</HeaderLinksMobilePage>
+                    <HeaderLinksMobilePage to="/top-rated" onClick={() => handleLinkClick("/top-rated")}>Top-Rated</HeaderLinksMobilePage>
+                    <HeaderLinksMobilePage to="/trending" onClick={() => handleLinkClick("/trending")}>Trending</HeaderLinksMobilePage>
+                    <HeaderLinksMobilePage to="/in-theaters" onClick={() => handleLinkClick("/in-theaters")}>In-Theaters</HeaderLinksMobilePage>
+                  </PaginaConteudoMobileWrapper>
+                </PaginaConteudoMobileContainer>
+              </PaginaOverlayMobile>
+            ) : (
+              null
+          )}
+        
+
+        {isMobile && isVisible ? 
+          <MenuToggleMobile className="menu-toggle" onClick={toggleMenu}>
+            <MenuIconMobile className={`menu-icon ${aberto ? 'menu-icon-x' : 'menu-icon-vazio'}`} onClick={fecharMenu}></MenuIconMobile> 
+          </MenuToggleMobile> 
+      :  
+        null
+        }    
     </HeaderContainer>
+    )}
+    </>
   );
+  
 }
