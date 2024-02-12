@@ -29,6 +29,12 @@ const GlobalStyle = createGlobalStyle`
         height: 100px;
     }
 
+    @media screen and (max-width: 769px) {
+        .pagina-overlay-aberto .pagina-conteudo {
+        transform: translateY(0);
+        }
+    }
+
 `
 
 export default GlobalStyle;
