@@ -69,9 +69,14 @@ export const HomeLink = styled(NavLink)`
   }
 
   @media screen and (max-width: 769px) {
-    padding: 6px;
+    /* padding: 6px;
     font-size: 24px;
-    border-bottom: 4px solid #e6aa13;
+    border-bottom: 4px solid #e6aa13; */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #d49d10;
+    text-shadow: 0.1em 0.1em #3a3a3a;
+    font-weight: bolder;
+    font-size: 30px;
   }
 
   @media screen and (max-width: 530px) {
@@ -81,7 +86,7 @@ export const HomeLink = styled(NavLink)`
   }
 
   @media screen and (max-width: 500px) {
-    font-size: 24px;
+    font-size: 28px;
     padding: 6px;
   }
 `
@@ -138,7 +143,7 @@ export const NavbarSearchArea = styled.form`
     margin-right: 0px;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 769px) {
     width: 80%;
     justify-content: center;
   }
@@ -186,12 +191,16 @@ export const NavbarSearchAreaInputMobile = styled.input`
   border: none;
 
   @media screen and (max-width: 769px) {
-    width: 56%;
+    width: 60%;
     padding: 10px 10px;
   }
 
   @media screen and (max-width: 600px) {
-    width: 46%;
+    width: 65%;
+  }
+
+  @media screen and (max-width: 430px) {
+    width: 90%;
   }
 `
 export const NavbarSearchAreaButton = styled.button`
@@ -349,8 +358,8 @@ export const PaginaConteudoMobileTitle = styled(Link)`
   margin-bottom: 15px; 
   font-size: 52px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: #e6aa13;
-  text-shadow: 0.1em 0.1em #424242;
+  color: #d49d10;
+  text-shadow: 0.1em 0.1em #3a3a3a;
   font-weight: bolder;
 
   @media screen and (max-width: 500px) {
