@@ -14,8 +14,15 @@ export default function Header() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [headerState, setHeaderState] = useState('normal');
   const [search, setSearch] = useState("")
-
+  
   const navigate = useNavigate()
+
+  const handleTopClick = (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+  
+  
 
   const toggleMenu = () => {
     setAberto(!aberto);
@@ -68,7 +75,7 @@ export default function Header() {
 
   useLayoutEffect(() => {
     const checkMobile = () => {
-      const isMobileDevice = window.innerWidth < 769;
+      const isMobileDevice = window.innerWidth < 770;
       setIsMobile(isMobileDevice);
     };
 
@@ -138,8 +145,8 @@ export default function Header() {
         <HeaderNavbarFixed>
             <HeaderNavbarContainerFixed>
               <HeaderHomeAreaFixed>
-                <LogoLink to="/">
-                  HOME
+                <LogoLink style={{ color: "white" }} onClick={handleTopClick}>
+                  TOP
                 </LogoLink>
               </HeaderHomeAreaFixed>
               <HeaderRoutesAreaFixed>
@@ -149,7 +156,7 @@ export default function Header() {
               </HeaderRoutesAreaFixed>
               <HeaderRoutesAreaFixed>
                 <LogoLink to="/top-rated">
-                  TOP RATED
+                  TOP-RATED
                 </LogoLink>
               </HeaderRoutesAreaFixed>
               <HeaderRoutesAreaFixed>
