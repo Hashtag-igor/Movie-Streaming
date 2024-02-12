@@ -10,7 +10,29 @@ const GlobalStyle = createGlobalStyle`
 
     a {
         text-decoration: none;
-        color: white;
+        color: black;
+    }
+
+    /* Estilos para a barra de rolagem */
+    ::-webkit-scrollbar {
+        width: 10px; /* Largura da barra de rolagem */
+    }
+
+    /* Estilos para o "trilho" da barra de rolagem (a área cinza) */
+    ::-webkit-scrollbar-track {
+        background-color: #fff; /* Cor de fundo do trilho */
+    }
+
+    /* Estilos para a "alça" da barra de rolagem (a parte que você arrasta) */
+    ::-webkit-scrollbar-thumb {
+        background-color: #c58c12; /* Cor da alça */
+        height: 100px;
+    }
+
+    @media screen and (max-width: 769px) {
+        .pagina-overlay-aberto .pagina-conteudo {
+        transform: translateY(0);
+        }
     }
 
 `

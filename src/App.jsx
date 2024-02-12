@@ -1,10 +1,14 @@
-import Router from "./router/Router"
+import Header from "./components/Header/Header"
+import { Outlet } from "react-router-dom"
+import Footer from "./pages/Footer"
 
 function App() {
   return (
-    <>
-      <Router />
-    </>
+    <div> 
+      <Header />
+      <Outlet />
+      <Footer />
+    </div>
   )
 }
 
