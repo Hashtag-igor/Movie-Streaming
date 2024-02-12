@@ -143,8 +143,8 @@ export default function CastCard({ profile, character, name}) {
       <CardComponents>
         <CastImage src={imageUrl} alt={name} />
         <CastDesc>
-            <CardInfoTitle>{name}</CardInfoTitle>
-            <p>{character}</p>
+          <CardInfoTitle>{name}</CardInfoTitle>
+          <p>{character}</p>
         </CastDesc>
       </CardComponents>
     </CastContainer>
