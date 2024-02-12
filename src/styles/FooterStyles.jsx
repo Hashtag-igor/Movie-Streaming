@@ -6,14 +6,27 @@ export const FooterContainer = styled.div`
 `
 
 export const RightsReservedContainer = styled.div`
-    margin: 30px 0 0 0;
+    margin: 50px auto 0 auto;
+    width: 94%;
+
+    @media screen and (max-width: 800px) {
+        margin: 45px auto 0 auto;
+    }
+
+    @media screen and (max-width: 799px) {
+        margin: 40px auto 0 auto;
+    }
 `
 export const FooterReserved = styled.h5`
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
     color: rgb(0, 0, 0);
 
-    @media screen and (max-width: 400px) {
-        font-size: 14px;
+    @media screen and (max-width: 420px) {
+        font-size: 13px;
+    }
+
+    @media screen and (max-width: 360px) {
+        font-size: 12px;
     }
 `
