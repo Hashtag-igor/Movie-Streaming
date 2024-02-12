@@ -14,8 +14,156 @@ const ProfileBackground = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   width: 100%; 
-  height: 700px; 
+  height: 710px;
+  
+  @media screen and (max-width: 1116px){
+    height: 790px;
+  }
+
+  @media screen and (max-width: 1024px){
+    height: 770px;
+  }
+
+  @media screen and (max-width: 900px){
+    height: 800px;
+  }
+
+  @media screen and (max-width: 840px){
+    height: 850px;
+  }
+
+  @media screen and (max-width: 610px){
+    height: 840px;
+  }
+
+  @media screen and (max-width: 520px){
+    height: 880px;
+  }
+
+  @media screen and (max-width: 400px){
+    height: 850px;
+  }
 `;
+
+const ImgDesc = styled.img`
+  height: 400px; 
+  width: 300px;
+  margin-right: 40px;
+
+  @media screen and (max-width: 1116px){
+    height: 490px;
+  }
+
+  @media screen and (max-width: 1024px){
+    height: 470px;
+  }
+
+  @media screen and (max-width: 900px){
+    height: 510px;
+  }
+
+  @media screen and (max-width: 840px){
+    height: 560px;
+  }
+
+  @media screen and (max-width: 800px){
+    height: 420px;
+    width: 380px;
+    margin: auto;
+  }
+
+  @media screen and (max-width: 700px){
+    width: 360px;
+    height: 400px;
+  }
+
+  @media screen and (max-width: 600px){
+    width: 340px;
+  }
+
+  @media screen and (max-width: 500px){
+    width: 320px;
+    height: 380px;
+  }
+
+  @media screen and (max-width: 400px){
+    width: 280px;
+    height: 340px;
+  }
+`
+const TitleDesc = styled.h2`
+  margin-top: 15px; 
+  font-size: 40px;
+
+  @media screen and (max-width: 999px){
+    font-size: 34px;
+  }
+
+  @media screen and (max-width: 800px){
+    margin-top: 20px; 
+    text-align: center;
+    font-size: 36px;
+  }
+
+  @media screen and (max-width: 700px){
+    font-size: 38px; 
+  }
+
+  @media screen and (max-width: 600px){
+    font-size: 35px; 
+  }
+
+  @media screen and (max-width: 500px){
+    font-size: 30px; 
+  }
+
+  @media screen and (max-width: 400px){
+    font-size: 26px; 
+  }
+
+  @media screen and (max-width: 360px){
+    font-size: 24px; 
+  }
+`
+const VoteAverageContainer = styled.div`
+  width: 50%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: left; 
+  gap: 0 40px;
+
+  @media screen and (max-width: 399px){
+    width: 70%; 
+    gap: 0 30px;
+    margin-left: 10px;
+  }
+`
+const MovieTime = styled.span`
+  font-size: 24px; 
+  font-weight: 600; 
+  letter-spacing: 2px;
+
+  @media screen and (max-width: 399px){
+    font-size: 20px;
+  }
+`
+const OverviewContainter = styled.div`
+  margin: 20px 0 10px 0;
+
+  @media screen and (max-width: 800px){
+    margin: 0px 0 0px 0;
+  }
+`
+const GenresBox = styled.div`
+  background: white; 
+  color: black; 
+  padding: 5px 8px; 
+  border-radius: 10px;
+
+  @media screen and (max-width: 840px){
+    font-size: 13px;
+  }
+`
 
 const InfoContainer = styled.div`
   position: absolute;
@@ -163,27 +311,28 @@ export default function InfoCard({movie}) {
             <InfoContainer>
                 <InfoWrapper>
                   <div>
-                    <img style={{height: "400px", width: "300px", marginRight: "40px"}} src={imageUrl} alt="" />
+                    <ImgDesc src={imageUrl} alt="" />
                   </div>
                   <div style={{display: "flex", flexDirection: "column", gap: "20px 0"}}>
                     <div>
-                      <h2 style={{marginTop: "15px", fontSize: "40px"}}> {movie.title} <span>      
-                      ({firstAirDate.getFullYear()}) </span> </h2>
+                      <TitleDesc> {movie.title} <span>      
+                      ({firstAirDate.getFullYear()}) </span> </TitleDesc>
                     </div>
                     
-                    <div style={{ width: "50%", display: "flex", alignItems: "center", justifyContent: "left", gap: "0 40px"}}>
+                    <VoteAverageContainer>
                       {voteAverageBox()}
-                      <span style={{fontSize: "24px", fontWeight: "600", letterSpacing: "2px"}}>{durationInHours}h{durationInMinutes}</span>
-                    </div>
+                      <MovieTime>{durationInHours}h{durationInMinutes}</MovieTime>
+                    </VoteAverageContainer>
                     
-                    <div style={{margin: "20px 0 10px 0"}}>
+                    <OverviewContainter>
                       <p>{movie.overview} </p>
-                    </div>
+                    </OverviewContainter>
+                    
                     <div style={{display: "flex", gap: "0 20px"}}>
                       {movieGenres.map((genres) => (
-                          <div key={genres.id}>
-                              <span style={{background: "white", color: "black", padding: "5px 8px", borderRadius: "10px"}}>{genres.name}</span>
-                          </div>
+                        <div key={genres.id}>
+                          <GenresBox>{genres.name}</GenresBox>
+                        </div>
                       ))}
                     </div>
                   </div>
