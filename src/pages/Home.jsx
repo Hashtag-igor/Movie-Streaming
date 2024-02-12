@@ -127,7 +127,7 @@ const HomeDescriptionSubTitle = styled.h2`
       height: 4.7em;
     }
 `
-const HomeCardArea = styled.div`
+export const HomeCardArea = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 0 30px 20px;
@@ -175,11 +175,11 @@ export const HomeCardTitle = styled.h2`
   @media screen and (max-width: 500px){
     margin: 0 36px 18px 0;
     text-align: center;
-    font-size: 38px;
+    font-size: 36px;
   }
 
   @media screen and (max-width: 430px){
-    font-size: 36px;
+    font-size: 35px;
     margin: 10px 0 10px 0;
     padding-right: 15px;
   }

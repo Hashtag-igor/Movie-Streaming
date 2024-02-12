@@ -24,11 +24,12 @@ export const CardContainer = styled.div`
   }
 
   @media (max-width: 1000px) {
-    width: 200px;
+    width: 180px;
   }
 
   @media (max-width: 999px) {
     height: 530px;
+    width: 200px;
   }
 
   @media (max-width: 860px) {
@@ -42,7 +43,7 @@ export const CardContainer = styled.div`
   }
 
   @media (max-width: 799px) {
-    height: 500px;
+    height: 520px;
   }
 
   @media (max-width: 700px) {
@@ -50,7 +51,7 @@ export const CardContainer = styled.div`
   }
 
   @media (max-width: 699px) {
-    height: 570px;
+    height: 600px;
   }
 
   @media (max-width: 430px) {
@@ -58,8 +59,7 @@ export const CardContainer = styled.div`
   }
 
   @media (max-width: 390px) {
-    width: 97%;
-    height: 570px;
+    height: 580px;
   }
 
   @media (max-width: 320px) {
@@ -118,6 +118,10 @@ const CardImg = styled.img`
   }
 
   @media (max-width: 350px) {
+    height: 420px;
+  }
+
+  @media (max-width: 320px) {
     height: 400px;
   }
   
@@ -148,6 +152,10 @@ const CardVoteArea = styled.div`
   }
 
   @media (max-width: 1000px) {
+    transform: translate(123px, -5px);
+  }
+
+  @media (max-width: 999px) {
     transform: translate(143px, -5px);
   }
 
@@ -234,6 +242,10 @@ const CardVoteArea = styled.div`
     transform: translate(312px, -4px);
   }
 
+  @media (max-width: 430px) {
+    transform: translate(338px, -4px);
+  }
+
   @media (max-width: 420px) {
     transform: translate(330px, -4px);
   }
@@ -263,7 +275,7 @@ const CardVoteArea = styled.div`
   }
 
   @media (max-width: 350px) {
-    transform: translate(258px, -4px);
+    transform: translate(260px, -4px);
   }
 
   @media (max-width: 340px) {
@@ -298,11 +310,11 @@ const CardInfoArea = styled.div`
     margin: 0 auto 0 auto;
   }
 `
-const CardInfoTitle = styled.h2`
+export const CardInfoTitle = styled.h2`
   display: flex;
   text-align: center;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 12px;
   text-transform: uppercase;
   font-size: 1.2rem;
   font-weight: 700;
