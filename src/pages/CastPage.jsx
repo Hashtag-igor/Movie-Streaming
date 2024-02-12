@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
 import { fetchMovieCastAndCrew } from "../services/fetch/MovieCast";
 import { useParams, useNavigate } from 'react-router-dom';
-import CastCard from '../components/Cards/CastCard';
+import CastCompleteCard from '../components/Cards/CastCompleteCard';
 import { HomeCardTitle } from "./Home"
 import styled from 'styled-components';
-import { FaArrowCircleLeft } from "react-icons/fa";
+import { RiArrowGoBackFill } from "react-icons/ri";
 
-
-export const ReturnArrow = styled(FaArrowCircleLeft)`
+export const ReturnArrow = styled(RiArrowGoBackFill)`
   width: 25px;
   height: 25px;
 
@@ -60,10 +59,10 @@ export default function CastPage() {
         {loading ? (
           <p>Loading cast...</p>
         ) : (
-          <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', flexWrap: 'wrap', margin: '30px 0', width: '100%', gap: "60px 0" }}>
+          <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', flexWrap: 'wrap', margin: '30px 0', gap: "30px 0" }}>
             {MovieCast.length > 0 ? (
               MovieCast.map((cast) => (
-                <CastCard key={cast.id} name={cast.name} character={cast.character} profile={cast.profile_path} />
+                <CastCompleteCard key={cast.id} name={cast.name} character={cast.character} profile={cast.profile_path} />
               ))
             ) : (
                 <p>No cast members available.</p>

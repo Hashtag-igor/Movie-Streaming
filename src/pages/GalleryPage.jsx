@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { fetchGallery } from "../services/fetch/Images";
 import { useParams, useNavigate } from 'react-router-dom';
-import GalleryCard from '../components/Cards/GalleryCard';
+import GalleryCompleteCard from '../components/Cards/GalleryCompleteCard';
 import { HomeCardTitle } from "./Home";
 import { ReturnArrow } from "./CastPage"
 
@@ -41,7 +41,7 @@ export default function GalleryPage() {
       <div style={{margin: "5px auto 0 auto", width: "99%"}}>
         <span style={{display: "flex", alignItems: "center", gap: "0 8px"}}><ReturnArrow onClick={handleReturnClick}/><span> return</span></span>
       </div>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "95%", margin: "40px auto -25px auto" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "95%", margin: "40px auto -30px auto" }}>
         <div>
           <HomeCardTitle>Gallery</HomeCardTitle>
         </div>
@@ -53,7 +53,7 @@ export default function GalleryPage() {
           <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', flexWrap: 'wrap', margin: '30px 0', width: '100%', gap: "30px 0" }}>
             {gallery.length > 0 ? (
               gallery.map((image) => (
-                <GalleryCard key={image.id} image={image} />
+                <GalleryCompleteCard key={image.id} image={image} />
               ))
             ) : (
               <p>No images available.</p>
