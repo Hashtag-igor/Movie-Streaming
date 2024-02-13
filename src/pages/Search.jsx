@@ -73,7 +73,7 @@ export default function Search() {
   return (
     <>
       <CardArea>
-        <SearchTitle>Resultados para: <SearchResults>{searchQuery}</SearchResults></SearchTitle>
+        <SearchTitle>Search results: <SearchResults>{searchQuery}</SearchResults></SearchTitle>
         <MapCardArea>
           {loading ? (
             <p>Loading...</p>
